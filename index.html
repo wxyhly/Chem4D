@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+
+<head>
+    <script type="module" src="js/main.js">
+    </script>
+    <style>
+        .flex-container {
+            display: flex;
+        }
+
+        #random {
+            width: 80px;
+            flex-shrink: 0;
+        }
+        #search{
+            width: 80px;
+            flex-shrink: 0;
+        }
+
+        #name {
+            flex-grow: 1;
+        }
+
+        div#wiki :nth-child(n+1) {
+            background-color: #ecf7f7;
+        }
+        canvas,img{
+            max-width: 100%;
+        }
+
+        #gallery img {
+            cursor: pointer;
+        }
+
+        #gallery img:hover {
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <button id="random">手气不错</button><button id="search">搜物质</button><input id="name"/>
+    </div>
+    <br>
+    <canvas style="background-color: #FCFEFF;"></canvas>
+    <input id="smiles" style="width: 100%;"/>
+    <hr />
+    <h2>相关信息</h2>
+    <div id="wiki"></div>
+    <hr />
+    历史记录：
+    <div id="gallery"></div>
+</body>
+
+</html>
