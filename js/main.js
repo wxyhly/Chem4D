@@ -13,7 +13,7 @@ window.onload = () => {
         smilesDom.value = mdata[id][1];
         const g = new ShapeBuilder(new Parser(smilesDom.value).parse()).build();
         engine.drawMolecule(g.atoms, g.bonds);
-        engine.drawMoleculeName(mdata[id][2]);
+        document.querySelector("h2").innerText = mdata[id][2] + " - 相关信息";
         const name = mdata[id][2];
         wikiPanel.innerHTML = "";
         if (mdata[id][3])
@@ -31,10 +31,17 @@ window.onload = () => {
         const img = document.createElement("img");
         img.src = canvas.toDataURL();
         const nid = id;
-        img.onclick = () => {
+        const imgdiv = document.createElement("imgdiv");
+        imgdiv.className = "image-item";
+        imgdiv.appendChild(img);
+        imgdiv.onclick = () => {
             drawCanvas(nid);
         };
-        document.getElementById("gallery").prepend(img);
+        const title = document.createElement("p");
+        title.className = "image-caption";
+        title.innerHTML = mdata[nid][2];
+        imgdiv.appendChild(title);
+        document.getElementById("gallery").prepend(imgdiv);
     });
     document.getElementById("search").addEventListener("click", function (e) {
         const txt = document.getElementById("name").value;

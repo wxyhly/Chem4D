@@ -410,6 +410,9 @@ X-C$E;X肿[0]
 
 [F-];氟化[14]
 [Cl-];氯化[14]
+[Br-];𣱕化[14]
+[Bd-2];溴化[14]
+[I-];碘化[14]
 [Ld-2];㲶化[14]
 [Fd-2];氲化[14]
 [Fn-3];氛化[15]
@@ -576,8 +579,19 @@ N([T+])3(..[T-])3;六氚化氮;正八面体平胞（有两个孤电子在法线�
 Fn(->Fn)3;氛气;三角锥形（有2个孤电子对，连价电子按五胞体分布）
 [F+][I+](..[F-])2;三氟化碘[0]
 [F+][I+](->>[F+3])(..[F-])5;七氟化碘[0]
-[F+][I+](..[F-])14(->>[F+3])4;十九氟化碘[0]
+[I+]([F+])(..[F-])14(->>[F+3])4;十九氟化碘[0]
 Fd-Fd;氲气[0]
+Fd-[Xe+2]..[Fd-2];二氲化氙[0]
+[Xe+4](Fd)2(..[Fd-2])2;四氲化氙
+[Xe+6](Fd)3(..[Fd-2])3;六氲化氙
+[Xe+8](Fd)4(..[Fd-2])4;八氲化氙
+[Xe+10](Fd)5(..[Fd-2])5;十氲化氙[0]
+F->[Xe+3](..[F-])3;四氟化氙[0]
+[Xe+6](<-F)2(..[F-])6;八氟化氙[0]
+[Xe+9](<-F)3(..[F-])9;十二氟化氙
+[Xe+12](<-F)4(..[F-])12;十六氟化氙
+[Xe+15](<-F)5(..[F-])15;二十氟化氙[0]
+
 
 
 Tk%1#TkTk#TkTk#Tk%1;𥓬苯[0]
@@ -752,7 +766,8 @@ C%1=CC(C=CC=C%2)#C%2C=C%1;累萘;两个芳环共用两个稠碳原子，但电�
 
 CS(->>O)C;二甲亚砜
 CS(->>O)2C;二甲砜[0]
-OCC(O)C%1C(O)#C(O)C(=O)O%1;抗坏血酸[0]
+OCC(O)C%1C(O)#C(O)C(=O)O%1;抗坏血酸;维生素C[0]
+E%1#CC(C(=O)(OD))#CC#C%1;烟酸;维生素B3
 OCC(O)C%1C(=O)=C(=O)C(=O)O%1;氧化抗坏血酸[0]
 [Fe+6](.[C-2]$E)7.[C-2]$E.[D+2](.[D+2])4;八㲴合铁酸[0]
 [Fe+4](.[C-2]$E)7.[C-2]$E.[D+2](.[D+2])5;八㲴合亚铁酸[0]
@@ -928,6 +943,11 @@ for (const data of (rawdata as [number, string, string][])) {
             database.unshift([r + 3, "C%1=CC(" + base + ")=CC=C%1" + base, "对萱" + bn]);
         }
         if (s.startsWith("X-") && s[2] !== ">") {
+
+            database.unshift([r + 2, "C%1#CC(C#CC#C%2)#C%2C#C%1" + base, "β-萘" + bn]);
+            database.unshift([r + 2, "C%1#CC(C#CC#C%2)#C%2C(" + base + ")#C%1", "α-萘" + bn]);
+            database.unshift([r + 2, "C%1=CC(C=CC=C%2)=C%2C=C%1" + base, "β-萱萘" + bn]);
+            database.unshift([r + 2, "C%1=CC(C=CC=C%2)=C%2C(" + base + ")=C%1", "α-萱萘" + bn]);
             database.unshift([r + 1, "C%1#CC#CC#C%1" + base, "苯" + bn]);
             database.unshift([r + 2, "Qc%1#Tk->Qc#Tk->Qc#Tk->%1" + base, "Tk-𥓬砠苯" + bn]);
             database.unshift([r + 2, "Tk%1#Qc<-Tk#Qc<-Tk#Qc<-%1" + base, "Qc-𥓬砠苯" + bn]);
@@ -949,7 +969,7 @@ for (const data of (rawdata as [number, string, string][])) {
     }
     if (n.endsWith("化")) {
         const valent = s.includes("-]") ? 1 : s.includes("-2]") ? 2 : s.includes("-3]") ? 3 : s.includes("-4]") ? 4 : 0;
-        genMetaIons(s, n, valent,1);
+        genMetaIons(s, n, valent, 1);
         if (r === 14) {
             database.unshift([1, genIon(s, "T->[C+]-D", valent, 1), n + "甲釧"]);
             database.unshift([1, genIon(s, "[Ny+](<-T)2", valent, 1), n + "羏"]);
@@ -1025,6 +1045,11 @@ for (const data of (rawdata as [number, string, string][])) {
     if (n.endsWith("基")) {
         database.unshift([r, "C" + s.slice(2), n + "甲烷"]);
         database.unshift([r, "CC" + s.slice(2), n + "乙烷"]);
+        database.unshift([r, "C=CC=C" + s.slice(2), n + "-1,3-丁二烜"]);
+        database.unshift([r, "C#CC#C" + s.slice(2), n + "丁二烯"]);
+        database.unshift([r, "CCCCC" + s.slice(2), n + "戊烷"]);
+        database.unshift([r, "C%1#CC(C#CC#C%2)#C%2C#C%1" + s.slice(2), "β-" + n + "萘"]);
+        database.unshift([r, "C%1#CC(C#CC#C%2)#C%2C(" + (s.slice(2)) + ")#C%1", "α-" + n + "萘"]);
         database.unshift([r, "C%1#CC#CC#C%1" + s.slice(2), n + "苯"]);
         database.unshift([r, "C%1=CC=CC=C%1" + s.slice(2), n + "萱"]);
     }
@@ -1072,13 +1097,13 @@ for (const data of (rawdata as [number, string, string][])) {
             database.unshift([r + 1, s.slice(0, 6 + o) + "(N)" + s.slice(6 + o), "3-氨基" + n]);
             database.unshift([r + 1, s.slice(0, 6 + o) + "(E)" + s.slice(6 + o), "3-氠基" + n]);
             database.unshift([r + 1, s.slice(0, 6 + o) + "(C$E)" + s.slice(6 + o), "3-肿基" + n]);
-            database.unshift([r + 1, s.slice(0, 6 + o) + "([E+2]$[C-2])" + s.slice(6 + o), "3-异肿基" + n]);
+            database.unshift([r + 1, s.slice(0, 6 + o) + "(E$>>C)" + s.slice(6 + o), "3-异肿基" + n]);
 
             database.unshift([r + 2, s.slice(0, 6 + o) + "(C#Tk<-T)" + s.slice(6 + o), n + "-3-" + "甲𥓬䃔"]);
             database.unshift([r + 2, s.slice(0, 6 + o) + "(C#E)" + s.slice(6 + o), n + "-3-" + "甲䃔"]);
             database.unshift([r + 2, s.slice(0, 6 + o) + "(CC#E)" + s.slice(6 + o), n + "-3-" + "乙䃔"]);
             database.unshift([r + 2, s.slice(0, 6 + o) + "(C#Tn)" + s.slice(6 + o), n + "-3-" + "甲磴䃔"]);
-            database.unshift([r + 1, s.slice(0, 6 + o) + "(C(=O)(OD))" + s.slice(6 + o), n + "-3-" + "甲酸"]);
+            database.unshift([r + 1, s.slice(0, 6 + o) + "(CC(=O)(OD))" + s.slice(6 + o), n + "-3-" + "乙酸"]);
             database.unshift([r + 1, s.slice(0, 6 + o) + "(C(=O)(OD)2)" + s.slice(6 + o), n + "-3-" + "泎酸"]);
             database.unshift([r + 1, s.slice(0, 6 + o) + "(C(=O)2)" + s.slice(6 + o), n + "-3-" + "酢"]);
             database.unshift([r + 1, s.slice(0, 6 + o) + "(C(<=Fn)(->Fn)Fn->H)" + s.slice(6 + o), n + "-3-" + "玢酸"]);
@@ -1096,7 +1121,7 @@ for (const data of (rawdata as [number, string, string][])) {
             }
         }
 
-        if (s[7 + o] === "C" && (n.endsWith("啶") || n.endsWith("喃")||n.endsWith("䓬"))) {
+        if (s[7 + o] === "C" && (n.endsWith("啶") || n.endsWith("喃") || n.endsWith("䓬"))) {
             if (hasD) {
                 database.unshift([r, s.slice(0, 8 + o) + "(<-T)" + s.slice(8 + o), "4-氚" + n]);
                 database.unshift([r, s.slice(0, 8 + o) + "(<-F)" + s.slice(8 + o), "4-氟" + n]);
@@ -1105,25 +1130,25 @@ for (const data of (rawdata as [number, string, string][])) {
                 database.unshift([r, s.slice(0, 8 + o) + "(->B)" + s.slice(8 + o), "4-硼烷基" + n]);
                 database.unshift([r, s.slice(0, 8 + o) + "(->Q)" + s.slice(8 + o), "4-磻烷基" + n]);
             }
-            
+
             database.unshift([r + 1, s.slice(0, 8 + o) + "(C)" + s.slice(8 + o), "4-甲基" + n]);
             database.unshift([r + 1, s.slice(0, 8 + o) + "(Ld)" + s.slice(8 + o), "4-㲶" + n]);
             database.unshift([r + 1, s.slice(0, 8 + o) + "(Fd)" + s.slice(8 + o), "4-氲" + n]);
             database.unshift([r + 1, s.slice(0, 8 + o) + "(N)" + s.slice(8 + o), "4-氨基" + n]);
             database.unshift([r + 1, s.slice(0, 8 + o) + "(E)" + s.slice(8 + o), "4-氠基" + n]);
             database.unshift([r + 1, s.slice(0, 8 + o) + "(C$E)" + s.slice(8 + o), "4-肿基" + n]);
-            database.unshift([r + 1, s.slice(0, 8 + o) + "([E+2]$[C-2])" + s.slice(8 + o), "4-异肿基" + n]);
+            database.unshift([r + 1, s.slice(0, 8 + o) + "(E$>>C)" + s.slice(8 + o), "4-异肿基" + n]);
             database.unshift([r + 2, s.slice(0, 8 + o) + "(C#N)" + s.slice(8 + o), n + "-4-甲腈"]);
             database.unshift([r + 2, s.slice(0, 8 + o) + "(C#Tk<-T)" + s.slice(8 + o), n + "-4-" + "甲𥓬䃔"]);
-            database.unshift([r + 2, s.slice(0, 8 + o) + "(C#Tn)" + s.slice(8 + o), n + "-4-" +  "甲磴䃔"]);
-            database.unshift([r + 1, s.slice(0, 8 + o) + "(C(=O)(OD))" + s.slice(8 + o), n + "-4-" +  "甲酸"]);
-            database.unshift([r + 1, s.slice(0, 8 + o) + "(C(=O)(OD)2)" + s.slice(8 + o),n + "-4-" +  "泎酸"]);
-            database.unshift([r + 1, s.slice(0, 8 + o) + "(C(<=Fn)(->Fn)Fn->H)" + s.slice(8 + o), n + "-4-" +  "玢酸"]);
-            database.unshift([r + 1, s.slice(0, 8 + o) + "(C(=O)2)" + s.slice(8 + o),n + "-4-酢"]);
+            database.unshift([r + 2, s.slice(0, 8 + o) + "(C#Tn)" + s.slice(8 + o), n + "-4-" + "甲磴䃔"]);
+            database.unshift([r + 1, s.slice(0, 8 + o) + "(C(=O)(OD))" + s.slice(8 + o), n + "-4-" + "甲酸"]);
+            database.unshift([r + 1, s.slice(0, 8 + o) + "(C(=O)(OD)2)" + s.slice(8 + o), n + "-4-" + "泎酸"]);
+            database.unshift([r + 1, s.slice(0, 8 + o) + "(C(<=Fn)(->Fn)Fn->H)" + s.slice(8 + o), n + "-4-" + "玢酸"]);
+            database.unshift([r + 1, s.slice(0, 8 + o) + "(C(=O)2)" + s.slice(8 + o), n + "-4-酢"]);
             database.unshift([r + 2, s.slice(0, 8 + o) + "(C#E)" + s.slice(8 + o), n + "-4-甲䃔"]);
         }
     }
-    if(s.endsWith("肟")){
+    if (s.endsWith("肟")) {
         database.unshift([r + 1, s.replace("=NO", "=NFn"), n.replace("肟", "馚肟")]);
         database.unshift([r + 1, s.replace("=NO", "=Ny->O"), n.replace("肟", "氤肟")]);
         database.unshift([r + 1, s.replace("=NO", "=Tn<-O<-T"), n.replace("肟", "磴肟")]);
@@ -1134,34 +1159,3 @@ for (const data of (rawdata as [number, string, string][])) {
     }
 }
 export const mdata = database.filter(e => e[1]).sort((a, b) => ((b[0] as number) - (a[0] as number)));
-// Ben代表苯基
-// 苯甲x可生成对/间苯二甲x
-// 严格写主链，可生成1-氲、1,1-二氕/氯、xxx代物
-// xxx酸的D写在最前，可替换为H2，叫xxx酸氕 ,-OD替换成-FnH叫羒酸，多元酸默认全部替换，部分加数字，还可替换成酰胺、酰胂、酰氲。
-`
-*(->H)4;正四面体
-D*(->H)2;三角形
-[T+][T+](.[T-])2;正四面体
-D[T+].[T-];直线型
-O([T+])2(.[T-])2;平面正方形
-Fd[T+].[T-];折线型
-FdS(->>[Fd+2])3Fd(.[Fd-2])3;正十六胞体
-C(<-T)2([T+])2(.[T-])2;三棱柱锥形
-Q(<-T)2([T+])3(.[T-])3;正十六胞体
-N([T+])3(.[T-])3;正八面体平胞
-[F+][F+](.[F-])2;平面正三角形
-Fn(->Fn)3;三角锥形
-
-O([T+])2(.[T-])2;四氚化氧;平面正方形（有3对在绝对垂直平面中的孤电子）
-FdS(->>[Fd+2])3(Fd)(.[Fd-2])3;八氲化硫;正十六胞体
-C(<-T)2([T+])2(.[T-])2;六氚化碳;可能是三棱柱锥形（有个孤电子指向锥点外）
-Q(<-T)2([T+])3(.[T-])3;八氚化磻;正十六胞体
-N([T+])3(.[T-])3;六氚化氮;正八面体平胞（有两个孤电子在法线两侧）
-[F+][F+](.[F-])2;氟气;平面正三角形（有4对在绝对垂直平面中的孤电子）
-Fn(->Fn)3;氛气;三角锥形（有2个孤电子对，连价电子按五胞体分布）
-`
-// 注顺磁性不管单个磁矩情况，简单外磁场只会激发出简单磁矩，因为两种手性电子机会相等
-// 洪特规则错了!同种无相互作用，无需标明方向，只有最终算磁矩时再排列组合各种可能！具体顺序不确定
-// Tn2、N2、Ny2、O2及其等电子体都有孤电子四pi键
-
-// 1-氛丙珚 不对，该是3-

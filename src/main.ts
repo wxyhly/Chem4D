@@ -14,7 +14,7 @@ window.onload = () => {
         smilesDom.value = mdata[id][1] as string;
         const g = new ShapeBuilder(new Parser(smilesDom.value).parse()).build();
         engine.drawMolecule(g.atoms, g.bonds);
-        engine.drawMoleculeName(mdata[id][2] as string);
+        document.querySelector("h2").innerText = mdata[id][2] + " - 相关信息";
         const name = mdata[id][2] as string;
         wikiPanel.innerHTML = "";
         if (mdata[id][3]) writeWiki(wikiPanel, mdata[id][2] as string, mdata[id][3] as string);
@@ -31,10 +31,18 @@ window.onload = () => {
         const img = document.createElement("img");
         img.src = canvas.toDataURL();
         const nid = id;
-        img.onclick = () => {
+        
+        const imgdiv = document.createElement("imgdiv");
+        imgdiv.className = "image-item";
+        imgdiv.appendChild(img);
+        imgdiv.onclick = () => {
             drawCanvas(nid);
         }
-        document.getElementById("gallery").prepend(img);
+        const title = document.createElement("p");
+        title.className="image-caption";
+        title.innerHTML = mdata[nid][2] as string;
+        imgdiv.appendChild(title);
+        document.getElementById("gallery").prepend(imgdiv);
 
     });
     document.getElementById("search").addEventListener("click", function (e) {
@@ -43,10 +51,10 @@ window.onload = () => {
         const res = (mdata as string[][]).filter(e => {
             const f = e;
             return (f[1].includes(txt) || f[2]?.includes(txt) || f[3]?.includes(txt)) && (e[0] as any) < 10;
-        }).sort((a, b) => (a[2].length - b[2].length+((a[0] as any)-(b[0] as any))));
+        }).sort((a, b) => (a[2].length - b[2].length + ((a[0] as any) - (b[0] as any))));
         wikiPanel.innerHTML = "";
         for (let i = 0; i < 8 && i < res.length; i++) {
-            writeWiki(wikiPanel, res[i][2],`$$${res[i][1]}$$`)?.addEventListener('click', function (e) {
+            writeWiki(wikiPanel, res[i][2], `$$${res[i][1]}$$`)?.addEventListener('click', function (e) {
                 drawCanvas(mdata.indexOf(res[i]));
             });
         }
