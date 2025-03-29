@@ -52,6 +52,7 @@ window.onload = () => {
             const f = e;
             return (f[1].includes(txt) || f[2]?.includes(txt) || f[3]?.includes(txt)) && (e[0] as any) < 10;
         }).sort((a, b) => (a[2].length - b[2].length + ((a[0] as any) - (b[0] as any))));
+        document.querySelector("h2").innerText = res.length?txt + " - 搜索结果":"未找到任何关于“"+txt+"”的信息";
         wikiPanel.innerHTML = "";
         for (let i = 0; i < 8 && i < res.length; i++) {
             writeWiki(wikiPanel, res[i][2], `$$${res[i][1]}$$`)?.addEventListener('click', function (e) {
@@ -64,5 +65,5 @@ window.onload = () => {
         const g = new ShapeBuilder(new Parser(smilesDom.value).parse()).build();
         engine.drawMolecule(g.atoms, g.bonds);
     });
-
+    document.getElementById("random").click();
 }
