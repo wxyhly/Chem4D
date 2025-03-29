@@ -5,107 +5,107 @@
 <head>
     <script type="module" src="js/main.js">
     </script>
-    <style>
-        @font-face {
-            font-family: 'Chemical4D';
-            src: url('https://wxyhly.github.io/programs/Chemical4D.woff');
-            font-weight: normal;
-            font-style: normal;
-        }
 
-        body {
-            font-family: "Chemical4D", serif;
-            font-size: 1.4em;
-        }
-
-        .flex-container {
-            display: flex;
-        }
-
-        #random {
-            width: 80px;
-            flex-shrink: 0;
-            color: red;
-            font-weight: bold;
-        }
-
-        #search {
-            width: 80px;
-            flex-shrink: 0;
-        }
-
-        #name {
-            flex-grow: 1;
-        }
-
-        div#wiki :nth-child(n+1) {
-            background-color: #ecf7f7;
-        }
-
-        canvas,
-        img {
-            max-width: 100%;
-        }
-
-        #gallery img {
-            cursor: pointer;
-        }
-
-        .image-item:hover {
-            background-color: aliceblue;
-            border-radius: 10px;
-        }
-
-
-
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .image-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin: 0;
-        }
-
-        .image-item img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .image-caption {
-            margin: 0;
-            font-size: 14px;
-            color: #333;
-        }
-
-        @media (max-width: 600px) {
-            .image-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 
 <body>
     <div class="flex-container">
         <button id="random">手气不错</button><button id="search">搜物质</button><input id="name" />
     </div>
-    <br>
+    <p id="uke">Loading....加载中</p>
     <canvas style="background-color: #FCFEFF;"></canvas>
-    <input id="smiles" style="width: 100%;" />
-    <hr />
+    <input id="smiles" style="width: 100%; border-style:solid; border-color: gray; border-radius: 5px; border-width: 0.5px;" />
     <h2>相关信息</h2>
     <div id="wiki"></div>
     <hr />
     历史记录：
     <div id="gallery" class="image-grid"></div>
 </body>
+<style>
+    @font-face {
+        font-family: 'Chemical4D';
+        src: url('https://wxyhly.github.io/programs/Chemical4D.woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    body {
+        font-family: "Chemical4D", serif;
+        font-size: 1.4em;
+    }
+
+    .flex-container {
+        display: flex;
+    }
+
+    #random {
+        width: 80px;
+        flex-shrink: 0;
+        color: red;
+        font-weight: bold;
+    }
+
+    #search {
+        width: 80px;
+        flex-shrink: 0;
+    }
+
+    #name {
+        flex-grow: 1;
+    }
+
+    div#wiki :nth-child(n+1) {
+        background-color: #ecf7f7;
+    }
+
+    canvas,
+    img {
+        max-width: 100%;
+    }
+
+    #gallery img {
+        cursor: pointer;
+    }
+
+    .image-item:hover {
+        background-color: aliceblue;
+        border-radius: 10px;
+    }
+
+
+
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .image-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 0;
+    }
+
+    .image-item img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .image-caption {
+        margin: 0;
+        font-size: 14px;
+        color: #333;
+    }
+
+    @media (max-width: 600px) {
+        .image-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
 
 </html>

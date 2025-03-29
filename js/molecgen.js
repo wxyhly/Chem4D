@@ -51,6 +51,8 @@ C(<<=Fd)(-OD)(->O->H)2;碳韫洋酸
 C(=O);甲醛[0]
 C(=O)C;乙醛[0]
 CC(=O)C;丙酮[0]
+C%1#CC#CC<#C%1<-C(<<#O)->C%1#CC#CC#C<-%1;二苯醝酮[0]
+Tn(->H)4<-C(<<#O)->Tn(->H)4;二磴肗醝酮[0]
 C<-C(<<#O)->C;丙醝酮[0]
 CC(=O)CC;丁酮
 C<-C(<<#O)->CC;丁醝酮
@@ -445,8 +447,7 @@ E$[C-2];㲴化[15]
 [Mg+4];镁[12]
 [Ca+4];钙[12]
 [E+2];钟[13]
-[N+4];铵[13]
-[N+2];亚铵[13]
+[N+2];铵[13]
 [Tn+3];镫[13]
 
 [Ak+];锵[12]
@@ -458,6 +459,8 @@ E$[C-2];㲴化[15]
 [Bm+3];䤮[12]
 [Zn+4];锌[12]
 [Co+4];钴[12]
+[Qm+4];钤[12]
+[Ba+4];钡[12]
 [Pk+4];铇[12]
 [Mn+4];锰[12]
 [Ag+2];银[12]
@@ -468,6 +471,7 @@ E$[C-2];㲴化[15]
 [Fx+4];亚锴[12]
 [Hg+4];汞[12]
 [Pb+6];铅[12]
+[Da+7];锾[12]
 T->[Ny+]<-T;羏[13]
 
 [C-]-D.T->[C+]-D;甲泾酸甲釧[0]
@@ -491,8 +495,10 @@ TnQcC(=O)(OD);昆磴氠酸
 C(C)3C(N)C(=O)(OD);亮氨酸[0]
 OCC(N)C(=O)(OD);丝氨酸[0]
 C%1#CC#CC%2#C%1NC#C%2CC(N)C(=O)(OD);色氨酸[0]
-
-C%1(OD)C(OD)C(OD)OC%1(OD)(C(OD));葡萄糖[0]
+C%1(OD)C(OD)C(OD)(C(OD))OC%1(OD)(C(OD));果糖[0]
+C%1(OD)C(OD)C(OD)C(OD)OC%1(OD)(C(OD));葡萄糖;碳原子不再有手性，跟半乳糖无区别[0]
+C%1(OD)C(OD)C(OD)C(OD)OC%1(OC%2(OD)C(OD)C(OD)C(OD)OC%2(OD)COD)(C(OD));麦芽糖;碳原子不再有手性，跟乳糖无区别[0]
+C%1(OD)C(OD)C(OD)C(OD)(CO)OC%1(OC%2(CO)C(OD)C(OD)C(OD)(CO)O%2);蔗糖[0]
 
 Fn<-FnFn->Fn;异氛[0]
 [F-]..D[F+];氟化氘;直线形分子
@@ -708,9 +714,9 @@ O%1C=CC=CC%1;四氢吡喃
 N%1C#EC#C%1;咪唑[0]
 N%1C=EC=C%1;四氢咪唑
 N%1C=NC=C%1;咪咱[0]
-E%1C#EC#C%1;吸唑[0]
-E%1C=EC=C%1;四氢吸唑
-E%1C=NC=C%1;吸咱[0]
+E%1C#EC#C%1;吣唑[0]
+E%1C=EC=C%1;四氢吣唑
+E%1C=NC=C%1;吣咱[0]
 
 N%1E#CC#C%1;吡唑[0]
 N%1E=CC=C%1;四氢吡唑
@@ -815,38 +821,12 @@ const genIon = (a, b, v1, v2) => {
     if (v1 * 4 === v2 * 3)
         return `${a}(.${b})2.${a}.${a}(.${b})2`;
 };
+const metals = rawdata.filter(e => e[0] === 12);
 const genMetaIons = (s, n, valent, rank) => {
-    database.unshift([rank, genIon(s, "[Na+]", valent, 1), n + "钠"]);
-    database.unshift([rank, genIon(s, "[K+]", valent, 1), n + "钾"]);
-    database.unshift([rank, genIon(s, "[Hc+]", valent, 1), n + "锏"]);
-    database.unshift([rank, genIon(s, "[Nt+2]", valent, 2), n + "铙"]);
-    database.unshift([rank, genIon(s, "[Ak+]", valent, 1), n + "锵"]);
-    database.unshift([rank, genIon(s, "[Ag+2]", valent, 2), n + "银"]);
-    database.unshift([rank, genIon(s, "[Kt+2]", valent, 2), n + "鉲"]);
-    database.unshift([rank - 1, genIon(s, "[Cj+3]", valent, 3), n + "钘"]);
-    database.unshift([rank - 1, genIon(s, "[Hz+3]", valent, 3), n + "镔"]);
-    database.unshift([rank - 1, genIon(s, "[Nm+3]", valent, 3), n + "𨰾"]);
-    database.unshift([rank, genIon(s, "[Bb+]", valent, 1), n + "镑"]);
-    database.unshift([rank, genIon(s, "[Bn+2]", valent, 2), n + "鉼"]);
-    database.unshift([rank - 1, genIon(s, "[Bm+3]", valent, 3), n + "䤮"]);
-    database.unshift([rank - 1, genIon(s, "[Ca+4]", valent, 4), n + "钙"]);
-    database.unshift([rank - 1, genIon(s, "[Mg+4]", valent, 4), n + "镁"]);
-    database.unshift([rank - 1, genIon(s, "[Zn+4]", valent, 4), n + "锌"]);
-    database.unshift([rank - 1, genIon(s, "[Co+4]", valent, 4), n + "钴"]);
-    database.unshift([rank - 1, genIon(s, "[Pk+4]", valent, 4), n + "铇"]);
-    database.unshift([rank - 1, genIon(s, "[Mn+4]", valent, 4), n + "锰"]);
-    database.unshift([rank, genIon(s, "[Cu+2]", valent, 2), n + "铜"]);
-    database.unshift([rank, genIon(s, "[Ag+2]", valent, 2), n + "银"]);
-    database.unshift([rank, genIon(s, "[Ch+2]", valent, 2), n + "亚鈨"]);
-    database.unshift([rank - 1, genIon(s, "[Ch+5]", valent, 5), n + "鈨"]);
-    database.unshift([rank - 1, genIon(s, "[Ml+5]", valent, 5), n + "镙"]);
-    database.unshift([rank - 1, genIon(s, "[Fx+5]", valent, 5), n + "锴"]);
-    database.unshift([rank - 1, genIon(s, "[Fx+4]", valent, 4), n + "亚锴"]);
-    database.unshift([rank - 1, genIon(s, "[Hg+4]", valent, 4), n + "汞"]);
-    database.unshift([rank - 1, genIon(s, "[Al+6]", valent, 6), n + "铝"]);
-    database.unshift([rank - 1, genIon(s, "[Fe+4]", valent, 4), n + "亚铁"]);
-    database.unshift([rank - 1, genIon(s, "[Fe+6]", valent, 6), n + "铁"]);
-    database.unshift([rank - 1, genIon(s, "[Pb+6]", valent, 6), n + "铅"]);
+    for (let [r, ms, mn] of metals) {
+        const mv = ms.match(/\+(.*)\]/)[1];
+        database.unshift([rank, genIon(s, ms, valent, Number(mv) || 1), n + mn]);
+    }
 };
 const database = rawdata.slice(0);
 // [rank, smile, ...name]
@@ -939,7 +919,7 @@ for (const data of rawdata) {
         }
     }
     if (n.startsWith("X")) {
-        data[0] = r + 3;
+        data[0] = r + 12;
         let bn = n.slice(1);
         let containC = s.match(/^X<?[\-=#]>?C/);
         database.unshift([r, s.replace("X", "C"), (containC ? "乙" : "甲") + bn]);
@@ -983,23 +963,23 @@ for (const data of rawdata) {
         if (r === 14) {
             database.unshift([1, genIon(s, "T->[C+]-D", valent, 1), n + "甲釧"]);
             database.unshift([1, genIon(s, "[Ny+](<-T)2", valent, 1), n + "羏"]);
-            database.unshift([1, genIon(s, "D-[N+4]-D", valent, 4), n + "铵"]);
+            database.unshift([1, genIon(s, "D-[N+2]-D", valent, 2), n + "铵"]);
             database.unshift([1, genIon(s, "D-[E+2]-D", valent, 2), n + "钟"]);
             database.unshift([1, genIon(s, "D-[Tn+3]-D", valent, 3), n + "镫"]);
-            database.unshift([1, genIon(s, "DED.[Co+4](D.E)6.DED", valent, 4), n + "八氠合钴"]);
+            database.unshift([1, genIon(s, "DED.[Co+4](.DE)6.DED", valent, 4), n + "八氠合钴"]);
             database.unshift([1, genIon(s, "T->Q(<-T)2<-T.[Co+4](.T->Q(<-T)4)6.T->Q(<-T)3<-T", valent, 4), n + "八磻氠合钴"]);
         }
     }
     if (r === 12) {
         // 金属氢化物
         const valent = s.includes("+]") ? 1 : s.includes("+2]") ? 2 : s.includes("+3]") ? 3 : s.includes("+4]") ? 4 : 0;
-        database.unshift([1, genIon(s, "[H-3]", valent, 3), "氕化" + n]);
-        database.unshift([1, genIon(s, "[D-2]", valent, 2), "氘化" + n]);
-        database.unshift([1, genIon(s, "[T-]", valent, 1), "氚化" + n]);
-        database.unshift([1, genIon(s, "[H-]*->H", valent, 1), "叠氕化" + n]);
-        database.unshift([0, genIon(s, "E$[C-2].[Fe+6](.[C-2]$E)6.[C-2]$E", valent, 10), "铁㲴化" + n]);
-        database.unshift([0, genIon(s, "Tn$>[C-].[Fe+6](.[C-]<$Tn)6.[C-]<$Tn", valent, 2), "铁硌化" + n]);
-        database.unshift([0, genIon(s, "Tn$>[C-].[Fe+4](.[C-]<$Tn)6.[C-]<$Tn", valent, 4), "亚铁硌化" + n]);
+        database.unshift([2, genIon(s, "[H-3]", valent, 3), "氕化" + n]);
+        database.unshift([2, genIon(s, "[D-2]", valent, 2), "氘化" + n]);
+        database.unshift([2, genIon(s, "[T-]", valent, 1), "氚化" + n]);
+        database.unshift([2, genIon(s, "[H-]*->H", valent, 1), "叠氕化" + n]);
+        database.unshift([1, genIon(s, "E$[C-2].[Fe+6](.[C-2]$E)6.[C-2]$E", valent, 10), "铁㲴化" + n]);
+        database.unshift([1, genIon(s, "Tn$>[C-].[Fe+6](.[C-]<$Tn)6.[C-]<$Tn", valent, 2), "铁硌化" + n]);
+        database.unshift([1, genIon(s, "Tn$>[C-].[Fe+4](.[C-]<$Tn)6.[C-]<$Tn", valent, 4), "亚铁硌化" + n]);
     }
     if (s.startsWith("C->C") || s.startsWith("CC") || s.startsWith("C=C") || s.startsWith("C#C") || s.match(/^[C=][C=][C=]/)) {
         const nn = n.match(/^[1-9]/) ? "-" + n : n;

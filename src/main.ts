@@ -5,6 +5,7 @@ import { ShapeBuilder } from "./shape.js";
 import { wikiData, writeWiki, writeWikiElementsFromAtoms } from "./wiki.js";
 
 window.onload = () => {
+    document.getElementById("uke").style.display = "none";
     const canvas = document.querySelector("canvas") as HTMLCanvasElement;
     const engine = new CanvasDraw(canvas);
     let id = 0;
@@ -31,7 +32,7 @@ window.onload = () => {
         const img = document.createElement("img");
         img.src = canvas.toDataURL();
         const nid = id;
-        
+
         const imgdiv = document.createElement("imgdiv");
         imgdiv.className = "image-item";
         imgdiv.appendChild(img);
@@ -39,7 +40,7 @@ window.onload = () => {
             drawCanvas(nid);
         }
         const title = document.createElement("p");
-        title.className="image-caption";
+        title.className = "image-caption";
         title.innerHTML = mdata[nid][2] as string;
         imgdiv.appendChild(title);
         document.getElementById("gallery").prepend(imgdiv);
@@ -52,7 +53,7 @@ window.onload = () => {
             const f = e;
             return (f[1].includes(txt) || f[2]?.includes(txt) || f[3]?.includes(txt)) && (e[0] as any) < 10;
         }).sort((a, b) => (a[2].length - b[2].length + ((a[0] as any) - (b[0] as any))));
-        document.querySelector("h2").innerText = res.length?txt + " - 搜索结果":"未找到任何关于“"+txt+"”的信息";
+        document.querySelector("h2").innerText = res.length ? txt + " - 搜索结果" : "未找到任何关于“" + txt + "”的信息";
         wikiPanel.innerHTML = "";
         for (let i = 0; i < 8 && i < res.length; i++) {
             writeWiki(wikiPanel, res[i][2], `$$${res[i][1]}$$`)?.addEventListener('click', function (e) {

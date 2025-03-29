@@ -4,6 +4,7 @@ import { Parser } from "./parser.js";
 import { ShapeBuilder } from "./shape.js";
 import { wikiData, writeWiki, writeWikiElementsFromAtoms } from "./wiki.js";
 window.onload = () => {
+    document.getElementById("uke").style.display = "none";
     const canvas = document.querySelector("canvas");
     const engine = new CanvasDraw(canvas);
     let id = 0;

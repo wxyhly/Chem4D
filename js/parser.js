@@ -302,7 +302,7 @@ class GraphBuilder {
             a.rings.push(ringTag);
         }
         this.rings.push(rights);
-        console.log(rights.map(e => e.name).join(","));
+        // console.log(rights.map(e => e.name).join(","));
     }
     sssr() {
         for (const a of this.atoms) {
