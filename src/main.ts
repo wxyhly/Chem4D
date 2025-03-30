@@ -3,13 +3,53 @@ import { mdata } from "./molecgen.js";
 import { Parser } from "./parser.js";
 import { ShapeBuilder } from "./shape.js";
 import { wikiData, writeWiki, writeWikiElementsFromAtoms } from "./wiki.js";
+window.name = "Chem4D";
 
 window.onload = () => {
     document.getElementById("uke").style.display = "none";
     const canvas = document.querySelector("canvas") as HTMLCanvasElement;
+    let smilesDom = document.getElementById("smiles") as HTMLInputElement;
+    let windowTsx = null;
+    async function delay(ms: number) {
+        return new Promise((resolve) => {
+            setTimeout(resolve, ms);
+        });
+    }
+    async function waitToLoad() {
+        while (!windowTsx["changeFromWindow"]) {
+            await delay(1000);
+            console.log("wait");
+        }
+        console.log("wait finished, okay！");
+        windowTsx.document.getElementById("smiles-input").value = smilesDom.value;
+        windowTsx["changeFromWindow"]();
+
+    }
+    document.getElementById("model").addEventListener('click', () => {
+        if ((!windowTsx || windowTsx.closed) && (!window.opener || window.opener.closed)) {
+            windowTsx = null;
+            console.log("startnewWindow");
+            const newWindow = window.open(window.location.host.startsWith("127.0.0.1") ?"/webgpu/tesserxel/examples/#molecule":"/tesserxel/examples/#molecule");
+            newWindow.addEventListener('load', () => {
+                windowTsx = newWindow.document.querySelector('iframe').contentWindow;
+                console.log("newWindowLoaded", windowTsx);
+                waitToLoad();
+            })
+        } else if (window.opener && !window.opener.closed) {
+            windowTsx = window.opener;
+        }
+        if (windowTsx) {
+            console.log("send");
+            windowTsx.document.getElementById("smiles-input").value = smilesDom.value;
+            windowTsx["changeFromWindow"]();
+            window.open("javascript:void(0);", "TsxChem4D");
+        } else {
+            console.log("404");
+
+        }
+    });
     const engine = new CanvasDraw(canvas);
     let id = 0;
-    let smilesDom = document.getElementById("smiles") as HTMLInputElement;
     const wikiPanel = document.getElementById("wiki") as HTMLDivElement;
     const drawCanvas = (id: number) => {
         smilesDom.value = mdata[id][1] as string;

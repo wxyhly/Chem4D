@@ -118,6 +118,7 @@ export class ShapeBuilder {
         } while (error > 0.1);
         const median = { x: (start.x + end.x) / 2, y: (start.y + end.y) / 2 };
         const radiusDist = radius * Math.cos(halfangle);
+        swap = true;
         const rotated = swap ? angle + Math.PI / 2 : angle - Math.PI / 2;
         const center = { x: median.x + Math.cos(rotated) * radiusDist, y: median.y + Math.sin(rotated) * radiusDist };
         const startAngle = Math.atan2(start.y - center.y, start.x - center.x);
@@ -274,7 +275,7 @@ export class ShapeBuilder {
         }
         if (this.graph.ringGroup[this.graph.rings.indexOf(ring)]?.length) {
             const oring = this.graph.ringGroup[this.graph.rings.indexOf(ring)][1][0];
-            this.drawRingArc(this.graph.rings[oring]);
+            this.drawRingArc(this.graph.rings[oring],true);
         }
     }
     calcEnergyAtPoint(p: Coord) {

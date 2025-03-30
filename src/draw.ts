@@ -13,18 +13,7 @@ export interface Bond {
     stop: Atom;
     type: BondType;
 }
-const RADIUS_TABLE = {
-    "C": 70,
-    "E": 68,
-    "N": 65,
-    "O": 60,
-    "F": 50,
-    "H": 30,
-    "D": 30,
-    "T": 30,
-    "e-": 50,
-}
-const COLOR_TABLE = {
+export const COLOR_TABLE = {
     "C": "rgb(70,70,70)",
     "E": "rgb(0,200,150)",
     "B": "rgb(145, 67, 49)",

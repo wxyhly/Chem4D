@@ -291,8 +291,8 @@ Tk<-Tk(=O)2;𥓬胂酢
 Qc<-Tk(=O)2;甲砠基𥓬酢
 
 Qc(=O)2;砠酢[0]
-X-Q(<=Fn)2;X砠砏酢
-Q(<=Fn)2Q(<=Fn)2;二砠砏酢
+X-Q(<=Fn)2;X磻酢
+Q(<=Fn)2Q(<=Fn)2;二磻酢
 
 C->Qc(=O)2;甲砠酢
 CC->Qc(=O)2;乙砠酢
@@ -752,16 +752,20 @@ Ny%1<-C=NC=C%1;咽咱 [1]
 N%1<-C=NC=C->%1;啖咱 [1]
 Ny%1<-C#EC#C%1;咽唑 [1]
 N%1<-C#EC#C->%1;啖唑 [1]
+N%1C=NC=NC=%1;1,3,5-三嗪
+N%1N=CN=CC=%1;1,2,4-三嗪
+E%1C#EC#EC#%1;1,3,5-三咁
+E%1E#CE#CC#%1;1,2,4-三咁
 
-O%1C#CC#CC#C%1;氧杂䓬[0]
+O%1C#CC#CC#C%1;氧杂䓬
 O%1C=CC=CC=C%1;六氢氧杂䓬
-S%1C#CC#CC#C%1;硫杂䓬[0]
+S%1C#CC#CC#C%1;硫杂䓬
 S%1C=CC=CC=C%1;六氢硫杂䓬
-Ny%1C#CC#CC#C%1;氤杂䓬 [0]
-Ny%1C=CC=CC=C%1;六氢氤杂䓬 [0]
-N%1C#CC#CC#C%1;氮杂䓬[0]
+Ny%1C#CC#CC#C%1;氤杂䓬 
+Ny%1C=CC=CC=C%1;六氢氤杂䓬 
+N%1C#CC#CC#C%1;氮杂䓬
 N%1C=CC=CC=C%1;六氢氮杂䓬
-E%1C#CC#CC#C%1;硝杂䓬[0]
+E%1C#CC#CC#C%1;硝杂䓬
 E%1C=CC=CC=C%1;六氢硝杂䓬
 
 C%1#CC(E#CC#C%2)#C%2C#C%1;喹啉
@@ -1053,7 +1057,7 @@ for (const data of rawdata) {
         database.unshift([r, s.replace(/C/g, "Qc"), prefixD + "砠环" + n.replace(/.氢/, "")]);
         if (hasD) {
             if ((!s.startsWith("Fd%1->") && !s.startsWith("Fn%1->")) || hasD > 4)
-                database.unshift([r, s.replace(/C(\%[0-9])/g, "E$1(->H)2").replace(/C/g, "E(->H)2"), prefixD + "硝环" + n.replace(/.氢/, "")]);
+                database.unshift([r, s.replace(/C([<]?[-]?[>]?\%[0-9])/g, "E$1(->H)2").replace(/C/g, "E(->H)2"), prefixD + "硝环" + n.replace(/.氢/, "")]);
             database.unshift([r, s.replace(/C/g, "Q"), prefixD + "磻环" + n.replace(/.氢/, "")]);
             if (hasD > 4)
                 database.unshift([r, s.replace(/C/g, "Qb"), prefixD + "矻环" + n.replace(/.氢/, "")]);
