@@ -61,6 +61,7 @@ export class ShapeBuilder {
             }
         }
         // calc bridges
+        changed = true;
         while (all.size && changed) {
             changed = false;
             for (const a of all) {

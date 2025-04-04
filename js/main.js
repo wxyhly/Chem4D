@@ -52,7 +52,7 @@ window.onload = () => {
     const wikiPanel = document.getElementById("wiki");
     const drawCanvas = (id) => {
         smilesDom.value = mdata[id][1];
-        const g = new ShapeBuilder(new Parser(smilesDom.value).parse()).build();
+        const g = new ShapeBuilder(new Parser(smilesDom.value, true).parse()).build();
         engine.drawMolecule(g.atoms, g.bonds);
         document.querySelector("h2").innerText = mdata[id][2] + " - 相关信息";
         const name = mdata[id][2];
@@ -101,7 +101,7 @@ window.onload = () => {
         }
     });
     smilesDom.addEventListener("change", function (e) {
-        const g = new ShapeBuilder(new Parser(smilesDom.value).parse()).build();
+        const g = new ShapeBuilder(new Parser(smilesDom.value, true).parse()).build();
         engine.drawMolecule(g.atoms, g.bonds);
     });
     document.getElementById("random").click();

@@ -29,7 +29,7 @@ window.onload = () => {
         if ((!windowTsx || windowTsx.closed) && (!window.opener || window.opener.closed)) {
             windowTsx = null;
             console.log("startnewWindow");
-            const newWindow = window.open(window.location.host.startsWith("127.0.0.1") ?"/webgpu/tesserxel/examples/#molecule":"/tesserxel/examples/#molecule");
+            const newWindow = window.open(window.location.host.startsWith("127.0.0.1") ? "/webgpu/tesserxel/examples/#molecule" : "/tesserxel/examples/#molecule");
             newWindow.addEventListener('load', () => {
                 windowTsx = newWindow.document.querySelector('iframe').contentWindow;
                 console.log("newWindowLoaded", windowTsx);
@@ -53,7 +53,7 @@ window.onload = () => {
     const wikiPanel = document.getElementById("wiki") as HTMLDivElement;
     const drawCanvas = (id: number) => {
         smilesDom.value = mdata[id][1] as string;
-        const g = new ShapeBuilder(new Parser(smilesDom.value).parse()).build();
+        const g = new ShapeBuilder(new Parser(smilesDom.value,true).parse()).build();
         engine.drawMolecule(g.atoms, g.bonds);
         document.querySelector("h2").innerText = mdata[id][2] + " - 相关信息";
         const name = mdata[id][2] as string;
@@ -103,7 +103,7 @@ window.onload = () => {
     });
 
     smilesDom.addEventListener("change", function (e) {
-        const g = new ShapeBuilder(new Parser(smilesDom.value).parse()).build();
+        const g = new ShapeBuilder(new Parser(smilesDom.value,true).parse()).build();
         engine.drawMolecule(g.atoms, g.bonds);
     });
     document.getElementById("random").click();

@@ -41,8 +41,9 @@ export class Parser {
     inAtom = false;
     atomNumber = 0;
     currentBond: string;
-    constructor(str: string) {
-        this.str = str;
+    constructor(str: string,mode2D:boolean) {
+        str = !mode2D?str.replaceAll(/\{\:.*\:\}/g,"").replaceAll(/\[\:(.*)\:\]/g,"$1"):str.replaceAll(/\[\:.*\:\]/g,"").replaceAll(/\{\:(.*)\:\}/g,"$1");
+        this.str = mode2D?str.replaceAll(/Elc[0-9]+/g,""):str;
     }
     parse() {
         const tree = this.nextChain(); // str to tree
@@ -323,7 +324,7 @@ class GraphBuilder {
                 const count = nr ? 1 : 0;
                 bridgesCount += count;
             }
-            if (bridgesCount > 2 && this.rings[nextRing].length > bridgesCount) {
+            if (bridgesCount > 2 && this.rings[nextRing]?.length > bridgesCount) {
                 const newRing = [];
                 let firstNot = true;
                 let firstTrue = true;

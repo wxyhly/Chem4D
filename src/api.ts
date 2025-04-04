@@ -4,7 +4,7 @@ import { ShapeBuilder } from "./shape.js";
 import { mdata } from "./molecgen.js";
 
 export function getStructureInfo(smiles: string) {
-    return new ShapeBuilder(new Parser(smiles).parse()).build();
+    return new ShapeBuilder(new Parser(smiles,false).parse()).build();
 }
 export function getAtomRadius(a: string) {
     if(a==="*") return 0.01;
@@ -13,13 +13,14 @@ export function getAtomRadius(a: string) {
     if (k >= 0) return 80 - k;
     k = ("Na Nt Nm Mg Ml Al Da Dd Du Si Gs G Gp P Ps S Lp Ld Cl".split(" ").indexOf(a));
     if (k >= 0) return 100 - k * 0.5;
+    if(a==="I") return 200;
     return 100;
 }
 export function getAtomColor(a: string) {
     return COLOR_TABLE[a] ?? "rgb(100,100,100)";
 }
 export function drawStructure(smiles: string, canvas: HTMLCanvasElement) {
-    const g = new ShapeBuilder(new Parser(smiles).parse()).build();
+    const g = new ShapeBuilder(new Parser(smiles,true).parse()).build();
     const engine = new CanvasDraw(canvas);
     engine.calcDim(g.atoms);
     engine.drawMolecule(g.atoms, g.bonds);
