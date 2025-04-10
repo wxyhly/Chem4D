@@ -62,7 +62,7 @@ export class Checker4D extends Checker {
         super(g);
         this.maxbonds = 5;
         this.perdelta = 0.5;
-        this.valentTable = Object.fromEntries("*2,H1.5,D1,T0.5,I0.5,F0.5,Cl0.5,Fd1,Ld1,Fn1.5,O2,S2,Ny2.5,N3,P3,Tn3.5,E4,Tk4.5,C5,Qc5.5,Q6,Qb6.5,B7,Bc7.5,Na-0.5,Lt1".split(/,/).map(e => [e.match(/[A-z\*]+/g)[0], Number(e.match(/[0-9\-\.]+/g)[0])]));
+        this.valentTable = Object.fromEntries("*2,H1.5,D1,T0.5,I0.5,F0.5,Cl0.5,Fd1,Ld1,Fn1.5,Lp1.5,O2,S2,Ny2.5,Ps2.5,N3,P3,Tn3.5,Gp3.5,E4,G4,Tk4.5,Gs4.5,C5,Si5,Du5.5,Qc5.5,Dd6,Q6,Qb6.5,B7,Bc7.5,Na-0.5,Lt1".split(/,/).map(e => [e.match(/[A-z\*]+/g)[0], Number(e.match(/[0-9\-\.]+/g)[0])]));
 
     }
     addHydrongen(a: AtomNode, valent: number, bond: number): void {

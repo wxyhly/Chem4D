@@ -29,6 +29,7 @@ C(=O)=C;乙烯酢[0]
 C(=O)=C=O;乙烯二酢[0]
 C(=O)=CC;丙烯酢
 C(=O)2OD;碳酸[0]
+C(=O)(<-FnD)2;碳羒酸[0]
 C(=O)(-OD)2;甲泎酸[0]
 C(=O)(-OD)2C;乙泎酸[0]
 C(=O)(-OD);甲酸[0]
@@ -56,13 +57,23 @@ C%1CC%1;环丙烷
 C%1CO%1;环氧乙烷
 C%1=CC=CC=CC=C%1;环辛四烜
 C%1#CC#CC#CC#C%1;环辛四烯[0]
-C(Fd)2#C(Fd)2;四氲乙烯[0]
-C(Fd)3=C(Fd)3;六氲乙烜[0]
+C%1=CC=CC%1(<=Fn)(->Fn);环戊二烜砏
+C%1#CC#CC%1(<=Fn)(->Fn);环戊二烯砏
+C%1#CC#CC%1(#N);环戊二烯胴
+C%1#CC#CC%1;环戊二烯
+C%1=CC=CC%1;环戊二烜
+C%1(=O)CCCC%1;环戊酮
+C%1(#N)CCCC%1;环戊胴
+C%1(=>>N)-CCCC->%1;1,2-二氚环戊氮酮
+C%1(=>>N)<-CCCC->%1;2,5-二氚环戊氮酮
+C%1(<=Fn)(->Fn)CCCC%1;环戊砏
+C(Fd)2#C(Fd)2;四氲乙烯
+C(Fd)3=C(Fd)3;六氲乙烜
 C(=O);甲醛[0]
 C(=O)C;乙醛[0]
 CC(=O)C;丙酮[0]
 C%1#CC#CC<#C%1<-C(<<#O)->C%1#CC#CC#C<-%1;二苯醝酮[0]
-Tn(->H)4<-C(<<#O)->Tn(->H)4;二磴肗醝酮[0]
+Tn(->H)4<-C(<<#O)->Tn(->H)4;二磴肗醝酮
 C<-C(<<#O)->C;丙醝酮[0]
 CC(=O)CC;丁酮
 C<-C(<<#O)->CC;丁醝酮
@@ -71,7 +82,7 @@ C=>Ny;甲氤醛
 C(=>Ny)C;乙氤醛
 CC(=>Ny)C;丙氤酮
 CC(=>Ny)CC;丁氤酮[2]
-C->C(=>Ny)(-C)2;2-甲基丙氤酮;异丁氤酮[2]
+C->C(=>Ny)(-C)2;2-甲基丙氤酮;异丁氤酮
 C=>>N;甲氮醛[0]
 C(=>>N)C;乙氮醛
 C->C(=>>N)C;丙氮酮
@@ -101,8 +112,8 @@ C->C(#>Tn)C;丙磴胴[0]
 O=C(OD)->C(#>Tn)C;1-丙磴胴酸
 O=C(OD)C(#>Tn)<-C;3-丙磴胴酸
 C(#>>E);甲硝腈
-C->C(#>>E);乙硝腈
-CC->C(#>>E);丙硝腈
+C(#>>E)<-C;乙硝腈
+C(#>>E)<-CC;丙硝腈
 C->>C->>C(#>>E);3,3-二氚丙硝腈
 C->C(#>>E)<-C;丙硝胴[0]
 
@@ -126,12 +137,22 @@ CC=E=CC;二乙焇;乙焇[0]
 C<=N=>C;二甲熳;甲熳[0]
 CC<=N=>CC;二乙熳;乙熳[0]
 C=>C<=C;二甲灲;甲灲[0]
+CE(=O)C;二甲酵;甲酵[0]
+CCE(=O)CC;二乙酵;乙酵[0]
+C<=O->C;二甲醪;甲醪[0]
+C<=O->CC;甲乙醪[0]
+CC<=O->C;乙甲醪 [0]
 Tk=>C<=Tk;二𥓬烷基灲;𥓬烷基灲[0]
 Q=>C<=Q;二磻烷基灲;磻烷基灲[0]
 N(->H)2=>C<=N(->H)2;二亚肗基灲;亚肗基灲[0]
 N(->H)2=C(->H)<=N(->H)2;亚肗基洝基氕基甲烷;异二亚肗基灲[0]
 CC=>C<=CC;二乙灲;乙灲[0]
 
+N(C)3;三甲胺[0]
+N(C)3->>O;氧化三甲胺
+N(C)3(->>O)2;二氧化三甲胺
+E(C)4;四甲胂[0]
+E(C)4->>O;氧化四甲胂
 X=>C#>Tn;X膯[0]
 X<=C<#Ny;X欭[0]
 X<<=C<<#Ny;X氕欭[0]
@@ -142,13 +163,13 @@ X<<=Fd;X韫;韫基[0]
 X#E;X䃔[0]
 X#Tn;X磴䃔
 X#Tk<-T;X𥓬䃔
-X#Tk;X亚𥓬烯
-X=Tk;X亚𥓬烜
-X#Qc;X亚砠烯
-X=Qc;X亚砠烜
-X#Q;X亚磻烯
-X=Q;X亚磻烜
-X=Qb;X亚矻烜
+X#Tk;X半𥓬烯
+X=Tk;X半𥓬烜
+X#Qc;X半砠烯
+X=Qc;X半砠烜
+X#Q;X半磻烯
+X=Q;X半磻烜
+X=Qb;X半矻烜
 
 X-Fn;X馚;馚基[0]
 X<-Fn;X氘馚;氘馚基[0]
@@ -197,6 +218,7 @@ X<=N(->H)3;X亚肗;亚肗基
 X<-N(->H)3;X氘肗;氘肗基
 X<-N<-T;X氘氚胺;氘氚氨基[2]
 X<-N;X氕氮胂;氕氮氠基
+H<-N(->H)3O D;肗醇
 
 X-N=O;亚腅基[2]
 X-N(=O)->>O;腅基
@@ -226,16 +248,17 @@ Ps(->O->H)5;硖洋酸[2]
 Ny(->O->H)(=O);亚氤酸
 Ny(->O->H)(=O)(->>O);氤酸[0]
 Ny(->O->H)(=O)(->>O)2;高氤酸[2]
-Ny(<-FnD)(-OD)(->>O);氤汾酸[2]
-Ny(<-O(->H)3)(-OD)(->>O);氤汌酸
+Ny(<-FnD)(-OD)(->>O);氤羒酸[2]
+Ny(<-O(->H)3)(-OD)(->>O);氤洺酸
 Ny(-OD)(<-T)(->>O);亚氚氤酸[2]
 Ny(-OD)(<-T)(->>O)2;氚氤酸[2]
 Ny(=O)(->>O)->C;甲氤酸[2]
 Ny(=O)(->>O)->CC;乙氤酸[2]
 
-N(<-FnD)2;亚氮汾酸
-N(<-FnD)2(->>O);氮汾酸
+N(<-FnD)2;亚氮羒酸
+N(<-FnD)2(->>O);氮羒酸
 N(<-FnD)(Fn)(->Fn);朌酸
+N(<-Fn->H)(Fn)(->Fn);朌𣸣酸
 N(<-FnD)(Fn)(->Fn)(->>O);高朌酸
 N(<=Fn)->O->H;亚氮枌酸
 N(<=Fn)(->>O)->O->H;氮枌酸
@@ -245,21 +268,23 @@ Tn(-OD)(->O->H)(=O)(->>O);磴酸[0]
 
 // 看到这里了，后面不对
 
-Tn(<-FnD)(=O);次磴汾酸[3]
+Tn(<-FnD)(=O);次磴羒酸[3]
 Tn(<=Fn)(-OD);次磴枌酸[3]
-Tn(<-FnD)(=O)(->>O);亚磴汾酸[3]
+Tn(<-FnD)(=O)(->>O);亚磴羒酸[3]
 Tn(<=Fn)(-OD)(->>O);亚磴枌酸[3]
-Tn(<-FnD)(=O)(->>O)2;磴汾酸[3]
+Tn(<-FnD)(=O)(->>O)2;磴羒酸[3]
 Tn(<=Fn)(-OD)(->>O)2;磴枌酸
 
-E(<-FnD)(-D)(-OD)(->>O);硝一汾酸[2]
-E(<-FnD)2-D;次硝汾酸[2]
-E(<-FnD)2(-D)(->>O);亚硝汾酸[4]
-E(<-FnD)2(-D)(->>O)2;硝汾酸[3]
+E(<-FnD)(<-T)(-OD)(->>O);硝氚羒酸
+E(<-FnD)(<-C)(-OD)(->>O);甲硝羒酸
+E(<-FnD)(-D)(-OD)(->>O);硝氘羒酸[2]
+E(<-FnD)2-D;次硝氘羒酸[2]
+E(<-FnD)2(-D)(->>O);亚硝氘羒酸[4]
+E(<-FnD)2(-D)(->>O)2;硝氘羒酸[3]
 
-Gs(<-FnD)3;次磪汾酸[3]
-Gs(<-FnD)3(->>O);亚磪汾酸[3]
-Gs(<-FnD)3(->>O)2;磪汾酸[2]
+Gs(<-FnD)3;次磪羒酸[3]
+Gs(<-FnD)3(->>O);亚磪羒酸[3]
+Gs(<-FnD)3(->>O)2;磪羒酸[2]
 Gs(-OD)4(->O->H);原磪酸
 Gs(=O)(-OD)2(->O->H);磪酸[0]
 
@@ -284,11 +309,11 @@ Ld(->O->H)2(->>O);亚㲶洋酸[4]
 Ld(->O->H)2(->>O)2;㲶洋酸[2]
 Ld(->O->H)2(->>O)3;高㲶洋酸[3]
 
-Lp(<-FnD);次硠汾酸[2]
-Lp(<-FnD)(->>O);低硠汾酸[2]
-Lp(<-FnD)(->>O)2;亚硠汾酸[4]
-Lp(<-FnD)(->>O)3;硠汾酸[2]
-Lp(<-FnD)(->>O)4;高硠汾酸[3]
+Lp(<-FnD);次硠羒酸[2]
+Lp(<-FnD)(->>O);低硠羒酸[2]
+Lp(<-FnD)(->>O)2;亚硠羒酸[4]
+Lp(<-FnD)(->>O)3;硠羒酸[2]
+Lp(<-FnD)(->>O)4;高硠羒酸[3]
 Lp(->O->H)3;次硠洋酸[3]
 Lp(->O->H)3(->>O);亚硠洋酸[2]
 Lp(->O->H)3(->>O)2;硠洋酸[2]
@@ -296,11 +321,11 @@ Lp(->O->H)3(->>O)2;硠洋酸[2]
 Qc(<=Fn)2->O->H;砠洋酸
 Qc(<=Fn)(->Fn)(<-FnD)OD;砠砏酸
 Qc(<=Fn)(->Fn)(<-Fd->H)OD;砠砏蕰酸
-Qc(=O)2<-FnD;砠汾酸
+Qc(=O)2<-FnD;砠羒酸
 Qc(<=Fn)(OD)3;原砠氛酸
 Qc(<=Fn)(=O)(OD);砠氛酸
 Q(<=Fn)2(OD);磻酸
-Q(<=Fn)(=O)<-FnD;磻汾酸
+Q(<=Fn)(=O)<-FnD;磻羒酸
 
 Tk(=O)2->H;𥓬酢[0]
 C<-Tk(=O)2;甲𥓬酢
@@ -324,15 +349,16 @@ Tk(<=Fn)(OD)2;𥓬枌酸[0]
 Tk(<=Fn)=O;𥓬枌酸酐
 Tk(=O)2->O->H;𥓬酸[0]
 Tk(<=Fn)(->Fn)(OD)(->O->H);𥓬砏酸
-Tk(<=Fn)(->Fn)2OD;𥓬氛酸
-Tk(<=Fn)(->Fn)(<-FnD);𥓬枌汾酸
+Tk(<=Fn)(->Fn)2OD;𥓬砏氛酸
+Tk(<=Fn)(->Fn)(<-FnD);𥓬砏羒酸
 Fd=>>Tk<-Fd->H;𥓬氲酸[0]
-Fd=>>Qb(<<=Fd)->O->H;矻酸
+Fd=>>Qb(<<=Fd)->O->H;矻氲酸
+Fn=>Qb(<=Fn)<-FnD;矻酸
 // (<-Fd->H) (蕰)
-// (<-FnD) (汾)
+// (<-FnD) (羒)
 // (<-O<-T) (汌)
 
-// (-Fn->H) (羒)
+// (-Fn->H) (汾)
 // (-O-D) (酸)
 // (-Ny<-T)氚䂩
 
@@ -401,7 +427,7 @@ Q(<<=Fd)2;二氲化磻
 B(<<=Fd)2-Fd;三氲化硼
 Q(-Fd)3<<=Fd;四氲化磻[0]
 C(-Fd)2<<=Fd;三氲化碳
-E(-Fd)<<=Fd;二氲化硝
+E(-Fd)<<=Fd;二氲化硝;亚腽酰氲
 N<<=Fd;氲化氮;氮韫
 Fn=>N->Fn;二氛化氮;氮砏
 C(<=Fn)2;二氛化碳
@@ -442,7 +468,15 @@ X-C$E;X肿[0]
 [Fd-2];氲化[14]
 [Fn-3];氛化[15]
 [O-4];氧化[15]
+[S-4];硫化[15]
 E$[C-2];㲴化[15]
+[N-2]=N=>>N;叠氮化[15]
+[E-4]=E#>>E;叠硝化[15]
+[E-4]#>>E;重硝化[15]
+D-[Qc-]-D;沮化[15]
+D-[Q-2]-D;潘化[15]
+H<-[N-](->H)3->H;汝化[15]
+H<-[Tn-2](->H)3->H;磴汝化[15]
 
 [O-2]D;氘氧化[15]
 [O-](->H)3;叔氕氧化[15]
@@ -497,12 +531,20 @@ E$[C-2];㲴化[15]
 [Da+7];锾[12]
 T->[Ny+]<-T;羏[13]
 
-[C-]-D.T->[C+]-D;甲泾酸甲釧[0]
+[C-]-D.T->[C+]-D;甲泾酸甲钏[0]
+[C-]-D.[D+2].D-[C-]-D;甲泾酸[0]
 
 
 C%1#CC#CC#C%1CC(N)C(=O)(OD);苯丙氨酸[0]
 C%1=CC=CC=C%1CC(N)C(=O)(OD);萱丙氨酸[0]
 C%1#CC(O)#CC#C%1CC(N)C(=O)(OD);酪氨酸[0]
+DOC(=O)CCC(N)C(=O)(OD);谷氨酸[0]
+CSCCC(N)C(=O)(OD);甲硫氨酸[0]
+SCC(N)C(=O)(OD);半胱氨酸[0]
+CC(O)C(N)C(=O)(OD);苏氨酸[0]
+NC(=N)NCCCC(N)C(=O)(OD);精氨酸[0]
+EC(=E)ECCCC(N)C(=O)(OD);亚胂精氨酸
+EC(#E)ECCCC(N)C(=O)(OD);硝精氨酸
 DC(N)C(=O)(OD);甘氨酸[0]
 NTkC(=O)(OD);鱼氨酸[0]
 ETkC(=O)(OD);鱼氠酸
@@ -529,15 +571,16 @@ C%1#CC#CC#C%1OCC(=O)NC%1C(SC(C)(C)C%2(C(=O)OD))N%2C%1(=O);青霉素V[0]
 C%1#CC#CC#C%1C(N)C(=O)NC%1C(SC#C(C)C%2(C(=O)OD))N%2C%1(=O);头孢氨苄[0]
 C%1#CC#CC#C%1C(E)C(=O)NC%1C(SC#C(C)C%2(C(=O)OD))N%2C%1(=O);头孢氠苄[0]
 Tn%1#>C(->Tn)SC#C%1C(=NOCC(=O)OD)C(=O)NC%1C(SC#C(C#C)C%2(C(=O)OD))N%2C%1(=O);头孢克肟[0]
-
-C%1C%3CC%2CC%1CC(C%2)C%3;金刚烷[10]
+C%1#CC#CC%2#C%1C(=O)-O-C%2(C%1#CC#C(O)C#C%1)(C%1#CC#C(O)C#C%1)(C%1#CC#C(O)C#C%1);酚酞[0]
+C%1C%3CC%2CC%1CC(C%2)C%3;金刚烷;2D分子结构式引擎未优化，请在Tesserxel中查看金刚烷的立体结构。
+C%1C%3(CC%4%5C%6)CC%2(C%5)CC%1%6CC(C%3)(C%2)(C%4);超金刚烷;2D分子结构式引擎未优化，请在Tesserxel中查看超金刚烷的立体结构。
 
 Fn<-FnFn->Fn;异氛[0]
 [F-]..D[F+];氟化氘;直线形分子
 [F+][T+](..[F-])2;氟化氚;平面正三角形分子
 Fd->H;氲水[0]
 Fd;氲化氘[0]
-T->[Fd+]..[T-];一氲化二氚
+T->[Fd+](..[T-])Elc4;一氲化二氚
 Fn(->H)3;氛氨[0]
 Fn(->H);氛水[0]
 Fn->Fn;氛化氘;叠氛酸[0]
@@ -551,32 +594,59 @@ Ny(->H)3;氤氠[0]
 Ny(->H);氤氨[0]
 Ny(<-T)->H;氚氤氨[2]
 Ny<-T;氤水[0]
-N(*)(->H)4;泾氮烷
 N(->H)4;氮烷[2]
-N(->H)4*;一泾氮烷[2]
+N(->H)4*;泾氮烷[2]
 N(->H)2;氮氠[2]
 N;氨[0]
 N(->H)3<-T;氚氮氠[2]
 N(->H)<-T;氚氨[2]
 T->N<-T;氮水[0]
+Tn(*)2(->H)3;二泾磴烷[2]
+Tn(->H)3*;一泾磴烷[2]
+Tn(->H)3;磴烷
+Tn;磴氠
+Tn(<-T)(->H)4;氚磴烷[2]
+Tn(<-T)(->H);氚磴氠[2]
+Tn(<-T);一氚磴氨[2]
+Tn(<-T)2;二氚磴氨[2]
 E->H;硝烷
+E(->H)3(<-T)*;泾氚硝烷[2]
+E(->H)3(<-T);氚硝烷[2]
+E(->H)*;一泾硝烷[2]
+E(->H)*2;二泾硝烷[2]
+E(->H)*3;三泾硝烷[2]
 E;氠;正四面体锥形分子[0]
-E(<-T)2;硝氨[0]
-Q(<-T)4;磻氠[0]
-B;甲硼烷[0]
+E(<-T);一氚氠
+E(<-T)2->H;二氚氠
+E(<-T)2;硝氨
+Q(<-T)4;磻氠
+C(<-T);氚甲烷[2]
+C(<-T)(->H)*3;三泾氚甲烷[2]
+C(<-T)(->H)*2;二泾氚甲烷[2]
+C(<-T)(->H)*;一泾氚甲烷[2]
+C(<-T)2(->H)*;泾二氚甲烷[2]
+C(<-T)2(->H);二氚甲烷[2]
+C(<-T)2;二氚碳氠[2]
+C(<-T)3;三氚碳氠[2]
+B;甲硼烷
 BB;乙硼烷
 Bc;磐烷[0]
 Qb->Bc<-Qb;二矻烷基磐烷;磐杂丙矻烷[2]
 Qb->BB<-Qb;1,2-二矻烷基乙硼烷;硼杂丁矻烷[2]
-Qb->BB<-Qb;三矻烷基磐烷;磐杂异丁矻烷[2]
+Qb->Bc(<-Qb)2;三矻烷基磐烷;磐杂异丁矻烷[2]
+Ny(->Bc)5;五磐烷基氤烷
 Qb%1QbQbQbQbQb%1;环己矻烷[0]
 Tk;𥓬烷
+Tk(<-T)(->H);一氚𥓬烷[2]
+Tk(<-T)2(->H)3;二氚𥓬烷[2]
 Tk*;泾𥓬烷;一泾𥓬烷
 Tk(*)2;二泾𥓬烷[2]
+Tk(*)(<-T)(->H);一泾氚𥓬烷[2]
+Tk(*)2(<-T)(->H);二泾氚𥓬烷[2]
 Tk(*)3;三泾𥓬烷[2]
 Tk(*)4;四泾𥓬烷
 Tk(<-T)3;𥓬氨[0]
-Tk(<-T);𥓬氠[0]
+Tk(<-T);𥓬氠;一氚𥓬氠[0]
 Tk(<-T)2;二氚𥓬氠
 C(<-T)2;二氚碳氠
 C(<-T)3;三氚碳氠
@@ -736,11 +806,11 @@ Tk%1<#CC#CC#C%1;𥓬吡啶 [2]
 Tn%1#>CC#CC#C%1;磴吡啶 [2]
 E%1#CE#CC#C%1;嘧啶
 N%1=CN=CC=C%1;嘧啖
-O%1C#EC#C%1;噁唑[0]
-O%1C=EC=C%1;四氢噁唑
-O%1E#CC#C%1;异噁唑
-O%1C=NC=C%1;噁咱[0]
-O%1N=CC=C%1;异噁咱
+O%1C#EC#C%1;𫫇唑[0]
+O%1C=EC=C%1;四氢𫫇唑
+O%1E#CC#C%1;异𫫇唑
+O%1C=NC=C%1;𫫇咱[0]
+O%1N=CC=C%1;异𫫇咱
 S%1C#EC#C%1;噻唑[0]
 S%1C=NC=C%1;噻咱[0]
 O%1C=C=C=C=C%1;吡喃[0]
@@ -764,6 +834,12 @@ Fd%1->C=NC=C<-%1;嗢咱[0]
 Fd%1->C#CC#C<-%1;嗢喃[0]
 Fd%1->C=CC=C<-%1;四氢嗢喃
 Fd%1->CCCC<-%1;八氢嗢喃
+Ld%1->C#EC#C<-%1;噜唑[0]
+Ld%1->C=EC=C<-%1;四氢噜唑
+Ld%1->C=NC=C<-%1;噜咱[0]
+Ld%1->C#CC#C<-%1;噜喃[0]
+Ld%1->C=CC=C<-%1;四氢噜喃
+Ld%1->CCCC<-%1;八氢噜喃
 Fn%1->C#CC#C%1;吩喃[0]
 Fn%1->C=CC=C%1;四氢吩喃[2]
 Fn%1->CCCC%1;八氢吩喃[2]
@@ -790,33 +866,55 @@ N%1C=NC=NC=%1;1,3,5-三嗪
 N%1N=CN=CC=%1;1,2,4-三嗪
 E%1C#EC#EC#%1;1,3,5-三咁
 E%1E#CE#CC#%1;1,2,4-三咁
+E%1C=EC=EC=%1;1,3,5-六氢三咁
+E%1E=CE=CC=%1;1,2,4-六氢三咁
 
 O%1C#CC#CC#C%1;氧杂䓬
-O%1C=CC=CC=C%1;六氢氧杂䓬
+O%1C=CC=CC=C%1;六氢氧杂䓬[2]
 S%1C#CC#CC#C%1;硫杂䓬
-S%1C=CC=CC=C%1;六氢硫杂䓬
+S%1C=CC=CC=C%1;六氢硫杂䓬[2]
 Ny%1C#CC#CC#C%1;氤杂䓬 
-Ny%1C=CC=CC=C%1;六氢氤杂䓬 
+Ny%1C=CC=CC=C%1;六氢氤杂䓬 [2]
 N%1C#CC#CC#C%1;氮杂䓬
-N%1C=CC=CC=C%1;六氢氮杂䓬
+N%1C=CC=CC=C%1;六氢氮杂䓬[2]
 E%1C#CC#CC#C%1;硝杂䓬
-E%1C=CC=CC=C%1;六氢硝杂䓬
+E%1C=CC=CC=C%1;六氢硝杂䓬[2]
 
 C%1#CC(E#CC#C%2)#C%2C#C%1;喹啉
 C%1#CC(C#EC#C%2)#C%2C#C%1;异喹啉[2]
 C%1=CC(N=CC=C%2)=C%2C=C%1;喹㕲
 C%1=CC(C=NC=C%2)=C%2C=C%1;异喹㕲[2]
 C%1=CC(C=CC=C%2)#C%2C=C%1;累萘;两个芳环共用两个稠碳原子，但电子无法整体在两环间离域。
+O%1C#COC#C%1;二𫫇英[0]
+O%1C=COC=C%1;二𫫇燕[0]
 
 CS(->>O)C;二甲亚砜
 CS(->>O)2C;二甲砜[0]
+CS(->>O)3C;二甲高砜[0]
+
+C->Ps(->>O)C;二甲亚硖砜
+C->Ps(->>O)2C;二甲硖砜
+C->Ps(->>O)3C;二甲高硖砜
+
+C<-Lp(->>O)C;二甲亚硠砜
+C<-Lp(->>O)2C;二甲硠砜
+C<-Lp(->>O)3C;二甲高硠砜
+
 OCC(O)C%1C(O)#C(O)C(=O)O%1;抗坏血酸;维生素C[0]
 E%1#CC(C(=O)(OD))#CC#C%1;烟酸;维生素B3
 OCC(O)C%1C(=O)=C(=O)C(=O)O%1;氧化抗坏血酸[0]
-[Fe+6](..[C-2]$E)7..[C-2]$E.[D+2](.[D+2])4;八㲴合铁酸[0]
-[Fe+4](..[C-2]$E)7..[C-2]$E.[D+2](.[D+2])5;八㲴合亚铁酸[0]
-[Fe+4](..[C-]<$Tn)7..[C-]<$Tn(.[D+2])2;八硌合亚铁酸[0]
-[Fe+6](..[C-]<$Tn)7..[C-]<$Tn(.[D+2]);八硌合铁酸[0]
+C(=O)(OD)CCCCCCCC#CCCCCCCCC;油酸[0]
+C(=O)(OD)CCCCCCCC=CCCCCCCCC;氢油酸[0]
+C(=O)(OD)CCCCCCCC#CCC#CCCCCC;亚油酸[0]
+C(=O)(OD)CCCCCCCC=CCC=CCCCCC;氢亚油酸[0]
+C(=O)(OD)CCCCCCCCCCCCCCCCC;硬脂酸[0]
+N(=O)(->>O)2OCC(ON(=O)(->>O)2)C(ON(=O)(->>O)2);三氮酸甘油酯;氮化甘油[0]
+C(OD)C(OD)C(OD);丙三醇;甘油[0]
+C(OP(->>O)2([O-2])OCC[E+2](C)4)C(OC(=O)CCCCCCCC)C(OC(=O)CCCCCCCC);磷脂酰胆碱[0]
+[Fe+6](..[C-2]$E)7..[C-2]$E.[D+2](.[D+2])4;八㲴合铁酸
+[Fe+4](..[C-2]$E)7..[C-2]$E.[D+2](.[D+2])5;八㲴合亚铁酸
+[Fe+4](..[C-]<$Tn)7..[C-]<$Tn(.[D+2])2;八硌合亚铁酸
+[Fe+6](..[C-]<$Tn)7..[C-]<$Tn(.[D+2]);八硌合铁酸
 {:DED.[Co+4](.DED)6.DED:}[:DE..[Co+4](..ED)6..ED:];八氠合钴[13]
 
 [Pb+6](..[C-2]C)3;三乙基铅[0]
@@ -838,6 +936,97 @@ CC(#EO)CC;丁胴肟
 CC(#EO)(C)C;异丁胴肟
 CC(#EO)C(#EO)C;丁二胴肟
 CC(#EO)C(=NO)C;丁胴酮肟
+
+T->N=>>Bc;N-氚磐腤
+T->N(->C)=>>Bc;N,N-甲基氚磐腤
+C(=N)2C(=N)2;四亚胺乙烷[0]
+N=>>C=>>N;氮醛腤 [0]
+N=>>Bc;磐腤
+N=>>B;硼腤
+N=>>Qb;矻腤
+N=>>Q;磻腤
+N=>>Qc;砠腤
+N=>>C(->H);甲腤
+N=>>C(->H)C(->H)<<=N;乙二腤 [0]
+E=CC=E;乙二亚胂[0]
+Tn=>CC<=Tn;乙二滕[0]
+Tn=>QQ<=Tn;乙磻二滕
+Tn=>QbQb<=Tn;乙矻二滕
+Tn=>Tk(->H)Tk(->H)<=Tn;乙𥓬二滕
+CN(C)=>>C(->H);N,N-二甲基甲腤
+CN(C)=>>C(->H);N,N-二甲基甲腤
+N=>>C(->H)C;乙腤
+N=>>C(->H)CC;丙腤
+C(N=>>Q);甲磻腤
+CN(=>>Q)C;二甲磻腤
+C(N=>>Q)C;乙磻腤
+C(N=>>Q)CC;丙磻腤
+C(N=>>Qc);甲砠腤
+CN(=>>Qc)C;二甲砠腤
+C(N=>>Qc)C;乙砠腤
+C(N=>>Qc)CC;丙砠腤
+C(<<=Fd)(->>O)(-Fd)C(<<=Fd)(->>O)(-Fd);乙二塭
+C(<<=Fd)(-Fd)C(<<=Fd)(-Fd);乙二亚塭
+Fd=>>C(Fd)OD;亚塭酸
+Fd=>>C(->>O)(Fd)OD;塭酸
+
+Ny<=E=>Ny;胙化氘
+Ny<=E(=>Ny)OD;胙酸
+X-E(=>Ny)2;X胙
+Ny<=E(=>Ny)E(=>Ny)2;联胙
+Ny<=E(=>Ny)C#CE(=>Ny)2;二胙乙烯
+Ny<=E(=>Ny)C=CE(=>Ny)2;二胙乙烜
+Ny<=Tk(=>Ny)<-C<$C;𥓬胙乙炔
+Ny<=Tn(=>Ny)->C$>C;磴胙乙炔
+
+Ny<=Tk=>Ny;𥓬胙化氚
+Ny<=Tk(=>Ny)<-FnD;𥓬胙酸
+Ny<=Tk(=>Ny)<-C;甲𥓬胙
+Ny<=Tk(=>Ny)<-CC;乙𥓬胙
+Ny<=Tk(=>Ny)<-CCC;丙𥓬胙
+Ny<=Tk(=>Ny)<-C<-C<-C;3-氚丙𥓬胙
+
+Ny<=Tn=>Ny;磴胙化氕
+Ny<=Tn(=>Ny)->O->H;磴胙酸
+Ny<=Tn(=>Ny)->C;甲磴胙
+Ny<=Tn(=>Ny)->CC;乙磴胙
+Ny<=Tn(=>Ny)->CCC;丙磴胙
+Ny<=Tn(=>Ny)->C->C->C;3-氕丙磴胙
+
+PPP;三膦
+PP;联膦
+P(C%1#CC#CC#C%1)(C%1#CC#CC#C%1);二苯基膦[0]
+P(C%1#CC#CC#C%1)(C%1#CC#CC#C%1)(C%1#CC#CC#C%1);三苯基膦
+G(C%1#CC#CC#C%1)(C%1#CC#CC#C%1)(C%1#CC#CC#C%1);三苯基脽[0]
+G(C%1#CC#CC#C%1)(C%1#CC#CC#C%1)(C%1#CC#CC#C%1)(C%1#CC#CC#C%1);四苯基脽[0]
+G(C)4;四甲基脽[0]
+P(C)3;三甲基膦[0]
+GGG;三脽
+GG;联脽
+CP(->>O)2(OD)2;甲基膦酸[0]
+CG(->>O)(OD)3;甲基脽酸[0]
+CG(C)(->>O)(OD)2;二甲基脽酸[0]
+CG(C)2(->>O)(OD);三甲基脽酸[0]
+C<-Ld(->>O)3->C;二甲高磠
+C<-Ld(->>O)2->C;二甲磠[0]
+C<-Ld(->>O)->C;二甲亚磠[0]
+C<-Ld(->>O)3->O->H;甲高磠酸
+C<-Ld(->>O)2->O->H;甲磠酸[0]
+C<-Ld(->>O)->O->H;甲亚磠酸
+C<-Ld->C;二甲琭;甲琭[0]
+CSC;二甲硫醚;甲硫醚[0]
+CC(=S)C;丙硫酮[0]
+C<-C(<=Lp)C;丙硠酮[0]
+X->Lp(->>O)3;硠基[0]
+X->Lp(->>O)4;高硠基
+C(<=Fn)(->Fn)(->Lp(->>O)3)<-C;1-硠基乙砏
+C(<=Fn)(->Fn)C->Lp(->>O)3;2-硠基乙砏
+C(<=Lp)(->Lp)(->Lp(->>O)3)<-C;1-硠基硠代乙砏
+C(<=Lp)(->Lp)C->Lp(->>O)3;2-硠基硠代乙砏
+C(<=Lp)(->Lp)C;硠代乙砏[0]
+O%1P%3(->>O)OP%2(->>O)OP%1(->>O)OP(->>O)(O%2)O%3;十氧化四磷;五氧化二磷，2D分子结构式引擎未优化，请在Tesserxel中查看十氧化四磷的立体结构。[0]
+O%1P%3(->>O)2OP%2(->>O)2OP%1(->>O)2OP(->>O)2(O%2)O%3;十四氧化四磷;七氧化二磷，2D分子结构式引擎未优化，请在Tesserxel中查看十四氧化四磷的立体结构。[0]
+O%1G%3(->>O)(OG%4%5(->>O)O%6)OG%2(->>O)(O%5)OG%1%6(->>O)OG(->>O)(O%3)(O%2)(O%4);十五氧化五碓;三氧化碓，2D分子结构式引擎未优化，请在Tesserxel中查看十五氧化五碓的立体结构。[0]
 
 O$O;氧气;有孤电子的四键结构，顺磁性物质[0]
 Ny$Ny;氤气;有孤电子的四键结构，顺磁性物质[0]
@@ -876,7 +1065,7 @@ for (const data of (rawdata as [number, string, string][])) {
         let hydrongenCount = chargeCount >> 1;
         let deltaH = s.includes("->O->H)2") ? 2 : s.includes("->O->H)3") ? 3 : s.includes("->O->H)4") ? 4 : s.includes("->O->H)5") ? 5 : s.includes("->O->H") ? 1 : 0;
         hydrongenCount += deltaH; chargeCount += deltaH;
-        if (s.includes("OD") && !s.includes("<-Fd->H")) {
+        if (s.includes("OD") && !s.includes("<-Fd->H") && !n.includes("油酸")) {
             if (chargeCount === 4) {
                 database.unshift([r - 1, s.replaceAll("OD", "[O-2]").replaceAll("->O->H", "->[O-]") + ".[Zn+4]", n + "锌"]);
                 database.unshift([r - 1, s.replaceAll("OD", "[O-2]").replaceAll("->O->H", "->[O-]") + "(.[Bn+2])2", n + "鉼"]);
@@ -913,8 +1102,11 @@ for (const data of (rawdata as [number, string, string][])) {
             database.unshift([r + 2, s.replaceAll("OD", "[O-2](.[K+]).[K+]").replaceAll("->O->H", "->[O-].[K+]").replaceAll("<-FnD", "<-[Fn-2](.[K+])2"), n + "钾"]);
             database.unshift([r + 2, s.replaceAll("OD", "[O-2](.[Hc+]).[Hc+]").replaceAll("->O->H", "->[O-].[Hc+]").replaceAll("<-FnD", "<-[Fn-2](.[Hc+])2"), n + "锏"]);
             database.unshift([r + 2, s.replaceAll("OD", "[O-2](.[Ny+](<-T)2).[Ny+](<-T)2").replaceAll("->O->H", "->[O-].[Ny+](<-T)2").replaceAll("<-FnD", "<-[Fn-2](.[Ny+](<-T)2)2"), n + "羏"]);
-            database.unshift([r + 2, s.replaceAll("OD", "[O-2](.T->[C+]-D).T->[C+]-D").replaceAll("->O->H", "->[O-].T->[C+]-D").replaceAll("<-FnD", "<-[Fn-2](.T->[C+]-D)2"), n + "甲釧"]);
+            database.unshift([r + 2, s.replaceAll("OD", "[O-2](.T->[C+]-D).T->[C+]-D").replaceAll("->O->H", "->[O-].T->[C+]-D").replaceAll("<-FnD", "<-[Fn-2](.T->[C+]-D)2"), n + "甲钏"]);
             if (!s.includes("->O->H") && !s.includes("<-FnD")) {
+                database.unshift([r + 2, s.replaceAll("OD", "[O-2](.T->[C+2]<-T)").replaceAll("<-FnD", "<-[Fn-2](.T->[C+2]<-T)"), n + "甲二钏"]);
+                database.unshift([r + 2, s.replaceAll("OD", "[O-2](.T->[C+][C+]<-T)").replaceAll("<-FnD", "<-[Fn-2](.T->[C+][C+]<-T)"), n + "-1,2-乙二钏"]);
+                database.unshift([r + 2, s.replaceAll("OD", "[O-2].T->[C+2](<-T)C").replaceAll("<-FnD", "<-[Fn-2](.T->[C+2](<-T)C)"), n + "-1,1-乙二钏"]);
                 database.unshift([r + 2, s.replaceAll("OD", "[O-2].[Nt+2]"), n + "铙"]);
                 database.unshift([r + 2, s.replaceAll("OD", "[O-2].[Kt+2]"), n + "鉲"]);
                 database.unshift([r + 2, s.replaceAll("OD", "[O-2].[Cu+2]"), n + "铜"]);
@@ -932,11 +1124,14 @@ for (const data of (rawdata as [number, string, string][])) {
                     database.unshift([r + 1, s.replaceAll("(OD)3", "([O-2])2([O-2].[Al+6])"), n + "铝"]);
                 }
             }
-            database.unshift([r + 2, s.replaceAll("OD", "O->H").replaceAll("<-FnD", "<-Fn(->H)2"), n + "氕",]);
-            database.unshift([r + 1, s.replaceAll("OD", "Fn->H"), (n.slice(0, -1) + "羒酸").replace("砏羒酸", "玢酸")]);
-            if (n.includes("次") || n.includes("原") || n.includes("铬")) continue;
+            database.unshift([r + 2, s.replaceAll("OD", "O->H"), n.slice(0, -1) + "涪酸"]);
+            if (s.includes("<-FnD")) {
+                database.unshift([r + 2, s.replaceAll("OD", "O->H").replaceAll("<-FnD", "<-Fn(->H)2"), (n.slice(0, -1) + "𣸣涪酸").replaceAll("羒𣸣", "𣸣")]);
+            }
+            database.unshift([r + 1, s.replaceAll("OD", "Fn->H"), (n.slice(0, -1) + "汾酸").replace("砏汾酸", "玢酸")]);
+            if (n.includes("次") || n.includes("原") || n.includes("铬") || n.includes("塭")) continue;
             database.unshift([r + 2, s.replaceAll("OD", "N"), n.slice(0, -1) + "酰胺"]);
-            database.unshift([r + 2, s.replaceAll("OD", "Fd"), (n.slice(0, -1) + "酰氲").replace("韫酰氲", "塭")]);
+            if (n !== "亚腽酸") database.unshift([r + 2, s.replaceAll("OD", "Fd"), (n.slice(0, -1) + "酰氲").replace("韫酰氲", "塭")]);
             database.unshift([r + 3, s.replaceAll("OD", "E"), n.slice(0, -1) + "酰胂"]);
             database.unshift([r + 4, s.replaceAll("OD", "C=>C#>Tn"), n.slice(0, -1) + "酰乙膯"]);
             database.unshift([r + 4, s.replaceAll("OD", "C<=C<#Ny"), n.slice(0, -1) + "酰乙欭"]);
@@ -949,13 +1144,13 @@ for (const data of (rawdata as [number, string, string][])) {
                 database.unshift([r + 1, s.replaceAll("->O->H", "->[O-].[Hc+]"), n + "锏"]);
                 database.unshift([r + 1, s.replaceAll("->O->H", "->[O-].[K+]"), n + "钾"]);
                 database.unshift([r + 3, s.replaceAll("->O->H", "->[O-].[Ny+](<-T)2"), n + "羏"]);
-                database.unshift([r + 3, s.replaceAll("->O->H", "->[O-].T->[C+]-D"), n + "甲釧"]);
+                database.unshift([r + 3, s.replaceAll("->O->H", "->[O-].T->[C+]-D"), n + "甲钏"]);
             }
             database.unshift([r + 2, s.replaceAll("->O->H", "->N<-T"), n.slice(0, -1) + "酰羘"]);
             database.unshift([r + 2, s.replaceAll("->O->H", "->Ny"), n.slice(0, -1) + "酰䂩"]);
             database.unshift([r + 3, s.replaceAll("->O->H", "->C=>C#>Tn"), n.slice(0, -1) + "酰乙膯"]);
         }
-        if (s.includes("<-FnD") && n.endsWith("汾酸")) {
+        if (s.includes("<-FnD") && n.endsWith("羒酸")) {
             database.unshift([r, s.replaceAll("<-FnD", "<-Fd->H"), n.slice(0, -2) + "蕰酸"]);
             database.unshift([r, s.replaceAll("<-FnD", "<-O(->H)3"), n.slice(0, -2) + "洺酸"]);
             if (!s.includes("OD")) {
@@ -967,7 +1162,7 @@ for (const data of (rawdata as [number, string, string][])) {
                     database.unshift([r + 1, s.replaceAll("<-FnD", "<-[O-3].[Cj+3]"), n.slice(0, -2) + "洺酸钘"]);
                     database.unshift([r + 1, s.replaceAll("<-FnD", "<-[O-3].[Bm+3]"), n.slice(0, -2) + "洺酸䤮"]);
                 }
-                database.unshift([r, s.replaceAll("<-FnD", "<-Fn(->H)2"), n + "氕"]);
+                database.unshift([r, s.replaceAll("<-FnD", "<-Fn(->H)2"), (n.slice(0, -1) + "𣸣酸").replaceAll("羒𣸣", "𣸣")]);
             }
         }
 
@@ -1017,14 +1212,29 @@ for (const data of (rawdata as [number, string, string][])) {
         const valent = s.includes("-]") ? 1 : s.includes("-2]") ? 2 : s.includes("-3]") ? 3 : s.includes("-4]") ? 4 : 0;
         genMetaIons(s, n, valent, 1);
         if (r === 14) {
-            database.unshift([1, genIon(s, "T->[C+]-D", valent, 1), n + "甲釧"]);
+            database.unshift([1, genIon(s, "T->[C+]-D", valent, 1), n + "甲钏"]);
+            database.unshift([1, genIon(s, "T->[Q+](<-T)2", valent, 1), n + "甲磻钏"]);
+            database.unshift([2, genIon(s, "T->[C+2]<-T", valent, 2), n + "二甲钏"]);
+            database.unshift([3, genIon(s, "T->[C+3](<-T)2", valent, 3), n + "三甲钏"]);
+            database.unshift([2, genIon(s, "T->[C+4](<-T)3", valent, 4), n + "四甲钏"]);
+            database.unshift([3, genIon(s, "T->[C+5](<-T)4", valent, 5), n + "五甲钏"]);
             database.unshift([1, genIon(s, "[Ny+](<-T)2", valent, 1), n + "羏"]);
+            database.unshift([2, genIon(s, "[Ny+2](<-T)2", valent, 2), n + "氕羏"]);
+            database.unshift([3, genIon(s, "[N+3](<-T)3", valent, 3), n + "三氚铵"]);
             database.unshift([1, genIon(s, "D-[N+2]-D", valent, 2), n + "铵"]);
+            database.unshift([2, genIon(s, "H<-[N+]-D", valent, 1), n + "氕铵"]);
+            database.unshift([1, genIon(s, "D-[Tk+]-D", valent, 1), n + "𥓬钟"]);
             database.unshift([1, genIon(s, "D-[E+2]-D", valent, 2), n + "钟"]);
+            database.unshift([2, genIon(s, "H<-[E+]-D", valent, 1), n + "氕钟"]);
             database.unshift([1, genIon(s, "D-[Tn+3]-D", valent, 3), n + "镫"]);
-            database.unshift([1, genIon(s, "{:DED.[Co+4](.DED)6.DED:}[:DE..[Co+4](..ED)6..ED:]", valent, 4), n + "八氠合钴"]);
-            database.unshift([1, genIon(s, "{:T->Q(<-T)2<-T.[Co+4](.T->Q(<-T)3)6.T->Q(<-T)2<-T:}[:Q(<-T)4..[Co+4](..Q(<-T)4)6..Q(<-T)4:]", valent, 4), n + "八磻氠合钴"]);
+            database.unshift([2, genIon(s, "{:DED.[Co+4](.DED)6.DED:}[:DE..[Co+4](..ED)6..ED:]", valent, 4), n + "八氠合钴"]);
+            database.unshift([2, genIon(s, "{:T->Q(<-T)2<-T.[Co+4](.T->Q(<-T)3)6.T->Q(<-T)2<-T:}[:Q(<-T)4..[Co+4](..Q(<-T)4)6..Q(<-T)4:]", valent, 4), n + "八磻氠合钴"]);
         }
+    }
+    if (n.endsWith("腤")) {
+        if (!n.includes("磐")) database.unshift([r, s.replace("=>>", "=>").replaceAll("N", "Tn"), n.replace("腤", "滕").replaceAll("N", "Tn")]);
+        if (!n.includes("硼") && !n.includes("磐")) database.unshift([r, s.replace("=>>", "=").replaceAll("N", "E"), n.replace("腤", "亚胂").replaceAll("N", "E")]);
+        if (!n.includes("矻") && !n.includes("硼") && !n.includes("磐")) database.unshift([r, s.replace("=>>", "<=").replaceAll("N", "Tk"), n.replace("腤", "亚𥓬胂").replaceAll("N", "Tk")]);
     }
     if (r === 12) {
         // 金属氢化物
@@ -1033,6 +1243,7 @@ for (const data of (rawdata as [number, string, string][])) {
         database.unshift([2, genIon(s, "[D-2]", valent, 2), "氘化" + n]);
         database.unshift([2, genIon(s, "[T-]", valent, 1), "氚化" + n]);
         database.unshift([2, genIon(s, "[H-]*->H", valent, 1), "叠氕化" + n]);
+        database.unshift([2, genIon(s, "[H-][H-]", valent, 2), "泾化" + n]);
         database.unshift([1, genIon(s, "E$[C-2]..[Fe+6](..[C-2]$E)6..[C-2]$E", valent, 10), "铁㲴化" + n]);
         database.unshift([1, genIon(s, "Tn$>[C-]..[Fe+6](..[C-]<$Tn)6..[C-]<$Tn", valent, 2), "铁硌化" + n]);
         database.unshift([1, genIon(s, "Tn$>[C-]..[Fe+4](..[C-]<$Tn)6..[C-]<$Tn", valent, 4), "亚铁硌化" + n]);
@@ -1060,12 +1271,14 @@ for (const data of (rawdata as [number, string, string][])) {
             if (!s.startsWith("C=C=")) {
                 database.unshift([2, ss.replace("X", "<-F"), "2-氟" + nn]);
                 database.unshift([2, ss.replace("X", "<-T"), "2-氚" + nn]);
-                database.unshift([2, ss.replace("X", "->Fn"), "2-氛" + nn]);
-                database.unshift([2, ss.replace("X", "->N<-T"), "2-羘" + nn]);
                 database.unshift([2, ss.replace("X", "<-Fn"), "2-氘馚" + nn]);
-                database.unshift([3, ss.replace("X", "->Ny"), "2-䂩" + nn]);
+                if (!s.startsWith("CC=>")) {
+                    database.unshift([2, ss.replace("X", "->Fn"), "2-氛" + nn]);
+                    database.unshift([2, ss.replace("X", "->N<-T"), "2-羘" + nn]);
+                    database.unshift([3, ss.replace("X", "->Ny"), "2-䂩" + nn]);
+                }
             }
-            database.unshift([2, s.replace("X", "Fn"), "2-馚" + nn]);
+            database.unshift([2, ss.replace("X", "Fn"), "2-馚" + nn]);
         }
     }
     if (s.endsWith("C(N)C(=O)(OD)")) {
@@ -1077,36 +1290,39 @@ for (const data of (rawdata as [number, string, string][])) {
         database.unshift([r + 2, s.replace("C(N)C(=O)(OD)", "C(E)2C(=O)(OD)"), n.replace("氨酸", "二氠酸")]);
         database.unshift([r + 2, s.replace("C(N)C(=O)(OD)", "C(E)(N)C(=O)(OD)"), n.replace("氨酸", "氨氠酸")]);
         if (n !== "甘氨酸") {
-            database.unshift([r + 3, s + "C(N)(" + s.slice(0, -13) + ")C(=O)(OD)", "二" + n]);
-            database.unshift([r + 4, s + "C(N)2(" + s.slice(0, -13) + ")C(=O)(OD)", "二" + n.replace("氨酸", "二氨酸")]);
-            database.unshift([r + 3, s.replace("C(N)C(=O)(OD)", "Tk(N)C(=O)(OD)"), n.replace("氨酸", "-鱼氨酸")]);
-            database.unshift([r + 3, s.replace("C(N)C(=O)(OD)", "Tk(E)C(=O)(OD)"), n.replace("氨酸", "-鱼氠酸")]);
-            database.unshift([r + 3, s.replace("C(N)C(=O)(OD)", "Qc(N)C(=O)(OD)"), n.replace("氨酸", "-昆氨酸")]);
-            database.unshift([r + 3, s.replace("C(N)C(=O)(OD)", "Qc(E)C(=O)(OD)"), n.replace("氨酸", "-昆氠酸")]);
+            database.unshift([r + 2, s.replace("C(N)C(=O)(OD)", "Tk(N)C(=O)(OD)"), n.replace("氨酸", "-鱼氨酸")]);
+            database.unshift([r + 2, s.replace("C(N)C(=O)(OD)", "Tk(E)C(=O)(OD)"), n.replace("氨酸", "-鱼氠酸")]);
+            database.unshift([r + 2, s.replace("C(N)C(=O)(OD)", "Qc(N)C(=O)(OD)"), n.replace("氨酸", "-昆氨酸")]);
+            database.unshift([r + 2, s.replace("C(N)C(=O)(OD)", "Qc(E)C(=O)(OD)"), n.replace("氨酸", "-昆氠酸")]);
         }
         if (n !== "丙氨酸") {
             database.unshift([r + 3, s.replace("C(N)C(=O)(OD)", "C(N)(C)C(=O)(OD)"), n.replace("氨酸", "-丙氨酸")]);
         }
     }
     if (n.endsWith("基")) {
-        database.unshift([r, "C" + s.slice(2), n + "甲烷"]);
-        database.unshift([r, "CC" + s.slice(2), n + "乙烷"]);
-        database.unshift([r, "C=CC=C" + s.slice(2), n + "-1,3-丁二烜"]);
-        database.unshift([r, "C#CC#C" + s.slice(2), n + "丁二烯"]);
-        database.unshift([r, "CCCCC" + s.slice(2), n + "戊烷"]);
-        database.unshift([r, "C%1#CC(C#CC#C%2)#C%2C#C%1" + s.slice(2), "β-" + n + "萘"]);
-        database.unshift([r, "C%1#CC(C#CC#C%2)#C%2C(" + (s.slice(2)) + ")#C%1", "α-" + n + "萘"]);
-        database.unshift([r, "C%1#CC#CC#C%1" + s.slice(2), n + "苯"]);
-        database.unshift([r, "C%1=CC=CC=C%1" + s.slice(2), n + "萱"]);
+        const prefix = s.startsWith("X->") || s.startsWith("X<-") ? 1 : 2;
+        database.unshift([r, "C" + s.slice(prefix), n + "甲烷"]);
+        database.unshift([r, "CC" + s.slice(prefix), n + "乙烷"]);
+        database.unshift([r, "C=CC=C" + s.slice(prefix), n + "-1,3-丁二烜"]);
+        database.unshift([r, "CCCCC" + s.slice(prefix), n + "戊烷"]);
+        database.unshift([r + 1, "C%1CCCC%1" + s.slice(prefix), n + "环戊烷"]);
+        database.unshift([r + 1, "C%1CCCCC%1" + s.slice(prefix), n + "环己烷"]);
+        database.unshift([r, "C%1=CC=CC=C%1" + s.slice(prefix), n + "萱"]);
+        if (s.startsWith("X-") && s[2] !== ">") {
+            database.unshift([r, "C#CC#C" + s.slice(2), n + "丁二烯"]);
+            database.unshift([r, "C%1#CC(C#CC#C%2)#C%2C#C%1" + s.slice(2), "β-" + n + "萘"]);
+            database.unshift([r, "C%1#CC(C#CC#C%2)#C%2C(" + (s.slice(2)) + ")#C%1", "α-" + n + "萘"]);
+            database.unshift([r, "C%1#CC#CC#C%1" + s.slice(2), n + "苯"]);
+        }
     }
-    if (s.startsWith("Fd%1") || s.startsWith("Fn%1") || (s[1] === "%" && (n.endsWith("咯") || n.endsWith("喃") || n.endsWith("啶") || n.endsWith("唑") || n.endsWith("咱") || n.endsWith("䓬")) && !n.includes("异"))) {
+    if (s.startsWith("Fd%1") ||s.startsWith("Ld%1") || s.startsWith("Fn%1") || (s[1] === "%" && (n.endsWith("咯") || n.endsWith("喃") || n.endsWith("啶") || n.endsWith("唑") || n.endsWith("咱") || n.endsWith("䓬")) && !n.includes("异"))) {
         const hasD = n.includes("四氢") ? 4 : n.includes("八氢") ? 8 : 0;
-        const o = s.startsWith("Fd%1->") || s.startsWith("Fn%1->") ? 3 : s.startsWith("Fn%1") ? 1 : 0;
+        const o = s.startsWith("Fd%1->") ||s.startsWith("Ld%1->") || s.startsWith("Fn%1->") ? 3 : s.startsWith("Fn%1") ? 1 : 0;
         const prefixD = n.includes("四氢") ? "四氢" : n.includes("八氢") ? "八氢" : "";
-        if ((!s.startsWith("Fd%1->") && !s.startsWith("Fn%1->")) || hasD) database.unshift([r, s.replace(/C/g, "Tk"), prefixD + "𥓬环" + n.replace(/.氢/, "")]);
+        if ((!s.startsWith("Fd%1->") && !s.startsWith("Ld%1->") && !s.startsWith("Fn%1->")) || hasD) database.unshift([r, s.replace(/C/g, "Tk"), prefixD + "𥓬环" + n.replace(/.氢/, "")]);
         database.unshift([r, s.replace(/C/g, "Qc"), prefixD + "砠环" + n.replace(/.氢/, "")]);
         if (hasD) {
-            if ((!s.startsWith("Fd%1->") && !s.startsWith("Fn%1->")) || hasD > 4) database.unshift([r, s.replace(/C([<]?[-]?[>]?\%[0-9])/g, "E$1(->H)2").replace(/C/g, "E(->H)2"), prefixD + "硝环" + n.replace(/.氢/, "")]);
+            if ((!s.startsWith("Fd%1->") &&!s.startsWith("Ld%1->") && !s.startsWith("Fn%1->")) || hasD > 4) database.unshift([r, s.replace(/C([<]?[-]?[>]?\%[0-9])/g, "E$1(->H)2").replace(/C/g, "E(->H)2"), prefixD + "硝环" + n.replace(/.氢/, "")]);
             database.unshift([r, s.replace(/C/g, "Q"), prefixD + "磻环" + n.replace(/.氢/, "")]);
             if (hasD > 4) database.unshift([r, s.replace(/C/g, "Qb"), prefixD + "矻环" + n.replace(/.氢/, "")]);
         }
@@ -1175,9 +1391,9 @@ for (const data of (rawdata as [number, string, string][])) {
                 database.unshift([r, s.slice(0, 8 + o) + "(<-T)" + s.slice(8 + o), "4-氚" + n]);
                 database.unshift([r, s.slice(0, 8 + o) + "(<-F)" + s.slice(8 + o), "4-氟" + n]);
                 database.unshift([r, s.slice(0, 8 + o) + "(->Fn)" + s.slice(8 + o), "4-氛" + n]);
-                database.unshift([r, s.slice(0, 8 + o) + "(->Bc)" + s.slice(8 + o), "4-磐烷基" + n]);
-                database.unshift([r, s.slice(0, 8 + o) + "(->B)" + s.slice(8 + o), "4-硼烷基" + n]);
-                database.unshift([r, s.slice(0, 8 + o) + "(->Q)" + s.slice(8 + o), "4-磻烷基" + n]);
+                database.unshift([r+1, s.slice(0, 8 + o) + "(->Bc)" + s.slice(8 + o), "4-磐烷基" + n]);
+                database.unshift([r+1, s.slice(0, 8 + o) + "(->B)" + s.slice(8 + o), "4-硼烷基" + n]);
+                database.unshift([r+1, s.slice(0, 8 + o) + "(->Q)" + s.slice(8 + o), "4-磻烷基" + n]);
             }
 
             database.unshift([r + 1, s.slice(0, 8 + o) + "(C)" + s.slice(8 + o), "4-甲基" + n]);
@@ -1202,9 +1418,11 @@ for (const data of (rawdata as [number, string, string][])) {
         database.unshift([r + 1, s.replace("=NO", "=Ny->O"), n.replace("肟", "氤肟")]);
         database.unshift([r + 1, s.replace("=NO", "=Tn<-O<-T"), n.replace("肟", "磴肟")]);
         database.unshift([r + 1, s.replace("=NO", "=Tn<-Fd"), n.replace("肟", "馧肟")]);
-        database.unshift([r + 1, s.replace("=NO", "=Tn<-Fn"), n.replace("肟", "氘馚肟")]);
+        database.unshift([r + 1, s.replace("=NO", "=Tn<-Fn"), n.replace("肟", "磴馚肟")]);
+        database.unshift([r + 1, s.replace("=NO", "=Tn<-Fn(->H)2"), n.replace("肟", "磴𣸣肟")]);
         database.unshift([r + 1, s.replace("=NO", "=Tn<-O(->H)3"), n.replace("肟", "酩肟")]);
         database.unshift([r + 1, s.replace("=NO", "=NO->H"), n.replace("肟", "醅肟")]);
     }
 }
-export const mdata = database.filter(e => e[1]).sort((a, b) => ((b[0] as number) - (a[0] as number)));
+export const mdata = database.filter(e => e[1]).sort((a, b) => ((b[0] as number) - (a[0] as number) + Math.random() * 0.1 - 0.05));
+console.log("molecule database size: ", mdata.length);

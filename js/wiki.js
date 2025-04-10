@@ -15,37 +15,52 @@ let wikidata = `
 砏酸::基团-CFnFnOD，结构式：$$X-C(<=Fn)(->Fn)OD$$，一种一元氘酸。
 氘酸::能电离出$$[D+2]$$离子的酸，一般为弱酸。
 氕酸::能电离出$$[H+]$$离子的酸，一般为强酸。
-酸氕::由氘酸中的一个氘换成两个氕得到，一般为强酸。
+𣸣酸::基团<-FnH2，由羒酸中的一个氘换成两个氕得到，一般为强酸。
+涪酸::基团-OH2，由氘氧酸中的一个氘换成两个氕得到，一般为中强酸。
 氚酸::不存在。氚的电负性较大，电离常数较小，不易形成酸，含有<-O<-T的结构一般归类为酰汌。
-汾酸::包含基团$$X<-FnD$$的含氧/氛酸，电离为$$X<-[Fn-2].[D+2]$$。
-羒酸::将氘酸中的-OD基团换成-FnH基团得到的氕酸，为强酸。
-玢酸::砏羒酸的简称，即-CFn3H，结构式：$$X-C(<=Fn)(->Fn)-Fn->H$$。
+羒酸::包含基团$$X<-FnD$$的含氧/氛酸，电离为$$X<-[Fn-2].[D+2]$$。
+汾酸::将氘酸中的-OD基团换成-FnH基团得到的氕酸，为强酸。
+玢酸::砏汾酸的简称，即-CFn3H，结构式：$$X-C(<=Fn)(->Fn)-Fn->H$$。
 洋酸::包含基团$$X->O->H$$的含氧/氛酸，电离为$$X->[O-].[H+]$$。
 洺酸::包含基团$$X<-O(->H)3$$的含氧/氛酸，电离为$$X<-[O-3](.[H+])3$$。
 蕰酸::包含基团$$X<-Fd->H$$的含氧/氛酸，电离为$$X<-[Fd-].[H+]$$。
 氨酸::三维氨基酸的类比之一，包含氨基ND2与甲酸基-CDOOD的酸，可以脱水缩合成氨肽，结构式$$NC(-X)(-X)C(=O)OD$$。
 氠酸::三维氨基酸的类比之一，包含氠基-ED3与甲酸基-CDOOD的酸，可以脱水缩合成氠肽，结构式$$EC(-X)(-X)C(=O)OD$$。
+胙::基团X(=>Ny)2，默认为硝胙。
+脽::有机的碓化物，三维膦的类比之一。
+膦::有机的磷化物，三维膦的类比之一。
+磠::磺与砜在㲶元素上的类比。
+
 韫::基团X<<=Fd。
 羘::基团X->N<-T。
 胂::基团-ED3。
 胺::基团-ND2。
 洝::基团=NH2。
+腤::基团<<=ND2。
+滕::基团<=TnD2。
 亚胺::基团=ND。
+沮::QcD5一价负离子。
+潘::QD5二价负离子。
+汝::NH5一价负离子。
 氨::ND3，即氮氨，亦可指其它元素的一个原子与三个氢原子形成的化合物。
 氠::ED4，即硝氠，亦可指其它元素的一个原子与四个氢原子形成的化合物。
 水::OD2，即氧水，亦可指其它元素的一个原子与两个氢原子形成的化合物。
 腅::基团-NO2，结构式$$X-N(=O)->>O$$，类似硝基。
 硣酸::基团-EOOOD，硝酸的羟基被烃基替代的产物，结构式$$X-E(=O)(->>O)OD$$，一种一元氘酸。
+酵::基团-EO-，结构式$$R-E(=O)-R$$。
 汌::基团<-OT，类似于醇，但无酸性。
 腈::基团-CND，结构式$$X-C(#N)D$$。
 胴::基团-CN-，结构式$$X-C(#N)X$$。
 醝::基团-CO，结构式$$X-C(<<#O)$$，一般以醝酮$$X<-C(<<#O)->Y$$形式存在，单独易被氧化为酢。
 瑥::基团C<-Fd->C，氧醚的类比。
+琭::基团C<-Ld->C，硫醚的类比。
+塭::韫酰氲的简称，即$$Fd=>>C(->>O)(X)-Fd$$，亚塭为$$Fd=>>C(X)-Fd$$。
 嗢::含<-Fd->结构的杂环。
-焇::基团C=E=C，氧醚的类比，显碱性。
+噜::含<-Ld->结构的杂环。
+焇::基团C=E=C，氧醚的类比。
 熳::基团C<=N=>C，氧醚的类比。
 酊::基团C<<=O=>>C，醚的类比。
-灲::基团C=>C<=C，氧醚的类比，强碱性。
+灲::基团C=>C<=C，氧醚的类比。
 膯::含有累积双三键碳的基团=>CTn，结构式$$X=>C(#>Tn)$$。
 欭::含有累积双三键碳的基团<=CNy，结构式$$X<=C(<#Ny)$$。
 馧::基团C<-Fd->H，弱酸。
@@ -78,7 +93,7 @@ let wikidata = `
 唑::含硝的五元二重芳香杂环。
 吣::类似咪唑的含-NH-的杂环为“咪”，含-ED2-的的杂环为“吣”。
 咱::含氮的五元单重芳香杂环，对应含硝的五元双重芳香杂环为“唑”。
-啖::含氮的六元单重芳香杂环，对应含硝的六元双重芳香杂环为“啶”。
+啖::在词尾指含氮的六元单重芳香杂环，对应含硝的六元双重芳香杂环为“啶”；在词首指含->N<-结构的杂环。
 咁::含氮的六元单重芳香杂环，对应含硝的六元双重芳香杂环为“嗪”。
 羏::NyT2一价正离子，类似于铵。
 钟::ED5二价正离子，类似于铵。
@@ -93,11 +108,11 @@ const atomData = `					@	@																																																					@
 %	%	%	%	#	Na钠	Nt铙	Nm𨰾	Mg镁	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	@	Ml镙	Al铝	Da锾	Dd砃	Du砡	Si硅	Gs磪	G碓	Gp䂾	P磷	Ps硖	S硫	Lp硠	Ld㲶	Cl氯	Ar氩				
 %	%	%	%	#	K钾	Kt鉲	Cj钘	Ca钙	Sa𫔌	Sc钪	Sk镩	Hn铖	Ht镬	Ti钛	Tq镡	Ai铚	Vj𬭫	V钒	Vz𬬬	Az銸	Cz𫓥	Cr铬	Bb镑	Bn鉼	Bm䤮	Mn锰	Fx锴	Fe铁	Fw䥽	Wd釫	Cw鍢	Co钴	Ch鈨	Sp铴	Ns钑	Ni镍	Pi鎃	Pk铇	Cp𨱎	Hj锲	Hc锏	Cu铜	Hz镔	Zn锌	Gz鍜	Ga镓	Bz𫓬	Bj铡	Bg錊	Ge锗	Ih䃎	Ia砧	Iv磌	As砷	Ae䃏	Se硒	Bs𪶭	Bd溴	Br𣱕	Kr氪				
 %	%	%	%	#	Rb铷	Rt𨧨	Rs鐩	Sr锶	Sy𫓹	Y钇	Yz鈏	Z铎	Zt镃	Zr锆	Zb鉡	Zk鐰	Nk錼	Nb铌	Hb锛	Hx鑛	Mj鑂	Mo钼	Mb铫	Bo𫔆	Bt釱	Tc锝	Tr鏶	Ru钌	Rd鏴	Me鋈	Mw铉	Rh铑	Rv銋	Mu𬭁	Mp鉖	Pd钯	Ah锷	Hi铘	Ig镒	Aa鈪	Ak锵	Ag银	Ad钭	Cd镉	Sj𬬱	In铟	Mi銤	M铓	Mq𨭩	Sn锡	Ze䤠	Ci鈶	Cg𨥜	Sb锑	St碁	Te碲	It碤	Id砥	I碘	Xe氙				
-%	%	%	%	#	Cs铯	Ct铩	Cb鎟	Ba钡	Bu鑗	Lu镥	Uv䤸	Hv铔	Vf鍝	Hf铪	Uf鍑	Uk锳	Ut䥙	Ta钽	Tt鎕	Mh釯	Wm釪	W钨	Wo鉥	Ot锬	Or䥃	Re铼	Ro鍒	Os锇	Zo𫟻	Zi鐑	My𬭆	Ir铱	El鏂	Ao䥝	So𫓪	Pt铂	Lh鏸	Fa𫔍	Fu鍸	J𨱓	Aj𫓦	Au金	Jg釶	Hg汞	Tg釭	Tl铊	Ql钶	Qm钤	Pq銙	Pb铅	Pl鐱	Ap镛	By𫔇	Bi铋	Bp鈵	Po钋	Pe碚	Et砈	At砹	Rn氡				
-%	%	%	%	#	Fr钫	Ft鍅	Fc钣	Ra镭	Rr釢	Lr铹	Lc𫓺	Pc鉘	Pf鉜	Rf𬬻	Rk顉	Lk铆	Jd鎌	Db𬭊	Dh鍕	Eh銰	Eg𬬧	Sg𬭳	Pg铸	Pn鍻	Ph𬭖	Bh𬭛	Bw䥤	Hs𬭶	Hm𫟺	Hu锪	Ez鉙	Mt鿏	Ov鉒	Ve䥳	Do鍎	Ds𫟼	Zu𬬺	Zh鉊	Zx鏉	Ck鏪	Gk𬬪	Rg𬬭	Kn銶	Cn鿔	Nc鈤	Nh鿭	Sh鍉	Su鋜	Fs鏠	Fl𫓧	Fb𬬯	Ab鎴	Aq铰	Mc镆	Mv鍡	Lv𫟷	Ls鈻	Td𬭓	Ts钿	Og鿫				
+%	%	%	%	#	Cs铯	Ct铩	Cb鎟	Ba钡    #	Ln鋓	La镧	Lz釼	L釖	Le釰	Ce铈	Kc鏮	Ka𫔋	Kp鏿	Pr镨	Fp錗	Mf鍲	Km钎	Dk镗	Dt𬭬	Nd钕	Zd钊	Tz铳	Hw鈋	Gt鈊	Gm釛	Pm钷	Mx铐	Xd鏬	Xc鏭	Sm钐	Ji鎅	Tj钝	Js鈌	Eu铕	Gu锢	Ee𫔅	Kl镂	Kk锚	Gn鈝	Gd钆	Gj鑇	Rj𨱕	Jt䦂	Tb铽	Kb錓	Mk鍷	Kd鐁	Dy镝	Df鑆	Sf鉎	Fh鏣	Sw鏁	Wj钜	Ho钬	Vo锸	Cv𫓩	Vd鍨	Hd䤣	Hr锽	Er铒	Xk𫓴	Aw铻	Jw鏩	Tm铥	Jm鏋	Ri鏫	Cy锖	Yb镱	Bu鑗	Lu镥	Uv䤸	Hv铔	Vf鍝	Hf铪	Uf鍑	Uk锳	Ut䥙	Ta钽	Tt鎕	Mh釯	Wm釪	W钨	Wo鉥	Ot锬	Or䥃	Re铼	Ro鍒	Os锇	Zo𫟻	Zi鐑	My𬭆	Ir铱	El鏂	Ao䥝	So𫓪	Pt铂	Lh鏸	Fa𫔍	Fu鍸	J𨱓	Aj𫓦	Au金	Jg釶	Hg汞	Tg釭	Tl铊	Ql钶	Qm钤	Pq銙	Pb铅	Pl鐱	Ap镛	By𫔇	Bi铋	Bp鈵	Po钋	Pe碚	Et砈	At砹	Rn氡				
+%	%	%	%	#	Fr钫	Ft鍅	Fc钣	Ra镭    #	An錌	Ac锕	Ma镘	Ju鈢	Jh銲	Th钍	Vh𬭃	Kh鑘	Kj𬭿	Pa镤	Sq𨱑	Sz𫟳	Sv𫔊	Ty钺	Tu鏕	U铀	Ur𫔉	Mr𨱔	Mz镞	A𨤿	Ay𫒉	Np镎	Tp𨱏	To镋	Tw鋔	Pu钚	Pv鐻	Ey𬬩	Em铧	Am镅	Rm鎠	Ry镮	Rw镟	En钲	Cq锜	Cm锔	Je镊	Ej镢	Jk𨱄	Bk锫	Bl𫔒	Bf镚	Bq镵	Cf锎	Rc鉌	Rp锟	Py𫔐	Mm𫓯	Vm铏	Es锿	Ss䦅	Sl𫔕	Sd𨰿	De𨱐	Dm釥	Fm镄	Af𨥁	Ax鎐	Xm鎋	Md钔	Vp釮	Vc锒	Vn镏	No锘	Rr釢	Lr铹	Lc𫓺	Pc鉘	Pf鉜	Rf𬬻	Rk顉	Lk铆	Jd鎌	Db𬭊	Dh鍕	Eh銰	Eg𬬧	Sg𬭳	Pg铸	Pn鍻	Ph𬭖	Bh𬭛	Bw䥤	Hs𬭶	Hm𫟺	Hu锪	Ez鉙	Mt鿏	Ov鉒	Ve䥳	Do鍎	Ds𫟼	Zu𬬺	Zh鉊	Zx鏉	Ck鏪	Gk𬬪	Rg𬬭	Kn銶	Cn鿔	Nc鈤	Nh鿭	Sh鍉	Su鋜	Fs鏠	Fl𫓧	Fb𬬯	Ab鎴	Aq铰	Mc镆	Mv鍡	Lv𫟷	Ls鈻	Td𬭓	Ts钿	Og鿫				
 																																																																
-#	Ln鋓	La镧	Lz釼	L釖	Le釰	Ce铈	Kc鏮	Ka𫔋	Kp鏿	Pr镨	Fp錗	Mf鍲	Km钎	Dk镗	Dt𬭬	Nd钕	Zd钊	Tz铳	Hw鈋	Gt鈊	Gm釛	Pm钷	Mx铐	Xd鏬	Xc鏭	Sm钐	Ji鎅	Tj钝	Js鈌	Eu铕	Gu锢	Ee𫔅	Kl镂	Kk锚	Gn鈝	Gd钆	Gj鑇	Rj𨱕	Jt䦂	Tb铽	Kb錓	Mk鍷	Kd鐁	Dy镝	Df鑆	Sf鉎	Fh鏣	Sw鏁	Wj钜	Ho钬	Vo锸	Cv𫓩	Vd鍨	Hd䤣	Hr锽	Er铒	Xk𫓴	Aw铻	Jw鏩	Tm铥	Jm鏋	Ri鏫	Cy锖	Yb镱
-#	An錌	Ac锕	Ma镘	Ju鈢	Jh銲	Th钍	Vh𬭃	Kh鑘	Kj𬭿	Pa镤	Sq𨱑	Sz𫟳	Sv𫔊	Ty钺	Tu鏕	U铀	Ur𫔉	Mr𨱔	Mz镞	A𨤿	Ay𫒉	Np镎	Tp𨱏	To镋	Tw鋔	Pu钚	Pv鐻	Ey𬬩	Em铧	Am镅	Rm鎠	Ry镮	Rw镟	En钲	Cq锜	Cm锔	Je镊	Ej镢	Jk𨱄	Bk锫	Bl𫔒	Bf镚	Bq镵	Cf锎	Rc鉌	Rp锟	Py𫔐	Mm𫓯	Vm铏	Es锿	Ss䦅	Sl𫔕	Sd𨰿	De𨱐	Dm釥	Fm镄	Af𨥁	Ax鎐	Xm鎋	Md钔	Vp釮	Vc锒	Vn镏	No锘
+
+
 `.split(/[\t\n%\#\@]/).filter(e => e).map((v, id) => [v.slice(0, -1).replace(/[\u4e00-\uFfa5]/g, ""), v.replace(/[A-z]/g, ""), "原子序数：" + (id + 1) + "，价电子排布：" + electrons[id] + "。"]);
 `H::氢类元素中质量最小的，易失去电子形成阳离子，一般为一价半，非金属性相对较弱。
 D::氢类非金属元素，电离能力弱于氕，一般为一价。
@@ -143,7 +158,7 @@ export const writeWiki = (dom, key, value) => {
         dom.appendChild(span);
         dom.appendChild(document.createElement("br"));
         dom.querySelectorAll("img.smiles").forEach(e => {
-            const g = new ShapeBuilder(new Parser(e.getAttribute("alt")).parse()).build();
+            const g = new ShapeBuilder(new Parser(e.getAttribute("alt"), true).parse()).build();
             const canvas = document.createElement("canvas");
             const engine = new CanvasDraw(canvas);
             engine.calcDim(g.atoms);

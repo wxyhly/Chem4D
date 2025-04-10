@@ -121,7 +121,11 @@ export class Parser {
         }
         if (c === "%") {
             this.cursor++;
-            const num = this.nextNumber();
+            let num = this.nextNumber();
+            if (this.getChar() === "%")
+                this.cursor++;
+            if (num)
+                num |= this.nextNumber() << 4;
             if (num) {
                 atom.tag = num;
             }
@@ -171,7 +175,11 @@ export class Parser {
                     BondType = this.nextBond();
                     if (this.getChar() === "%")
                         this.cursor++;
-                    const num = this.nextNumber();
+                    let num = this.nextNumber();
+                    if (this.getChar() === "%")
+                        this.cursor++;
+                    if (num)
+                        num |= this.nextNumber() << 4;
                     if (num) {
                         prevAtom.nexts.push({
                             name: "bond", prebond: BondType, tag: num, prevatom: prevAtom
@@ -247,14 +255,25 @@ class GraphBuilder {
             throw "unexpected bonded tag";
         }
         if (atom.tag) {
-            if (this.tagMap.has(atom.tag)) {
-                const other = this.tagMap.get(atom.tag);
+            if (this.tagMap.has(atom.tag & 0xF)) {
+                const other = this.tagMap.get(atom.tag & 0xF);
                 this.addBond(16, atom, other);
                 this.recordRing(atom, other);
-                this.tagMap.delete(atom.tag);
+                this.tagMap.delete(atom.tag & 0xF);
             }
             else {
-                this.tagMap.set(atom.tag, atom);
+                this.tagMap.set(atom.tag & 0xF, atom);
+            }
+            if (atom.tag > 0xF) {
+                if (this.tagMap.has(atom.tag >> 4)) {
+                    const other = this.tagMap.get(atom.tag >> 4);
+                    this.addBond(16, atom, other);
+                    this.recordRing(atom, other);
+                    this.tagMap.delete(atom.tag >> 4);
+                }
+                else {
+                    this.tagMap.set(atom.tag >> 4, atom);
+                }
             }
         }
         const branchNum = atom.nexts.length;
@@ -343,8 +362,7 @@ class GraphBuilder {
                 this.rings[nextRing] = newRing;
             }
         }
-        for (const r of this.rings)
-            console.log(r.map(e => e.name).join(","));
+        // for (const r of this.rings) console.log(r.map(e => e.name).join(","));
     }
 }
 //# sourceMappingURL=parser.js.map

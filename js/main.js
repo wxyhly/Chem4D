@@ -21,7 +21,8 @@ window.onload = () => {
         }
         console.log("wait finished, okay！");
         windowTsx.document.getElementById("smiles-input").value = smilesDom.value;
-        windowTsx["changeFromWindow"]();
+        const n = mdata.find(e => e[1] === smilesDom.value)?.[2];
+        windowTsx["changeFromWindow"](n);
     }
     document.getElementById("model").addEventListener('click', () => {
         if ((!windowTsx || windowTsx.closed) && (!window.opener || window.opener.closed)) {
@@ -40,7 +41,8 @@ window.onload = () => {
         if (windowTsx) {
             console.log("send");
             windowTsx.document.getElementById("smiles-input").value = smilesDom.value;
-            windowTsx["changeFromWindow"]();
+            const n = mdata.find(e => e[1] === smilesDom.value)?.[2];
+            windowTsx["changeFromWindow"](n);
             window.open("javascript:void(0);", "TsxChem4D");
         }
         else {
@@ -67,7 +69,7 @@ window.onload = () => {
         writeWikiElementsFromAtoms(wikiPanel, g.atoms);
     };
     document.getElementById("random").addEventListener("click", function (e) {
-        id = Math.floor(Math.sqrt(Math.sqrt(Math.random())) * mdata.length);
+        id = Math.floor((Math.sqrt(Math.random())) * mdata.length);
         drawCanvas(id);
         const img = document.createElement("img");
         img.src = canvas.toDataURL();
@@ -104,6 +106,17 @@ window.onload = () => {
         const g = new ShapeBuilder(new Parser(smilesDom.value, true).parse()).build();
         engine.drawMolecule(g.atoms, g.bonds);
     });
+    window["changeFromWindow"] = function (s, n) {
+        const idx = mdata.findIndex(e => e[2] === n);
+        if (idx >= 0) {
+            drawCanvas(idx);
+        }
+        else {
+            smilesDom.value = s;
+            const g = new ShapeBuilder(new Parser(smilesDom.value, true).parse()).build();
+            engine.drawMolecule(g.atoms, g.bonds);
+        }
+    };
     document.getElementById("random").click();
 };
 //# sourceMappingURL=main.js.map
