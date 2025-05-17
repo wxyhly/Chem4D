@@ -30,6 +30,9 @@ table.periodic{
     font-weight: normal;
     font-style: normal;
 }
+.elem-font{
+    font-family: "Chemical4D", serif;
+}
 .elem-name{
     font-family: "Chemical4D", serif;
     font-size: 1.4em;
