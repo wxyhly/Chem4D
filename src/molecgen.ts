@@ -1251,6 +1251,7 @@ for (const data of (rawdata as [number, string, string][])) {
         database.unshift([1, genIon(s, "Tn$>[C-]..[Fe+4](..[C-]<$Tn)6..[C-]<$Tn", valent, 4), "亚铁硌化" + n]);
     }
     if (s.startsWith("C->C") || s.startsWith("CC") || s.startsWith("C=C") || s.startsWith("C#C") || s.match(/^[C=][C=][C=]/)) {
+        if(n.includes("素")) continue;
         const nn = n.match(/^[1-9]/) ? "-" + n : n;
         const ss = s.startsWith("CC(=>") ? "C->" + s.slice(1) : s;
         database.unshift([3, "Ld" + s, "1-㲶" + nn]);

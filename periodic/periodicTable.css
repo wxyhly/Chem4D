@@ -26,7 +26,7 @@ table.periodic{
 }
 @font-face {
     font-family: 'Chemical4D';
-    src: url('/programs/Chemical4D.woff');
+    src: url('Chemical4D.woff');
     font-weight: normal;
     font-style: normal;
 }
