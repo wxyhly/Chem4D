@@ -2,12 +2,22 @@ import { CanvasDraw } from "./draw.js";
 import { AtomNode, Parser } from "./parser.js";
 import { ShapeBuilder } from "./shape.js";
 
+const englishName = (
+    `H:Protium D:Deuterium T:Tritium He:Helium Li:Lithium Be:Beryllium B:Boron C:Carbon N:Nitrogen O:Oxygen F:Fluorine Ne:Neon Na:Sodium Mg:Magnesium Al:Aluminium Si:Silicon P:Phosphorus S:Sulfur Cl:Chlorine Ar:Argon K:Potassium Ca:Calcium Sc:Scandium Ti:Titanium V:Vanadium Cr:Chromium Mn:Manganese Fe:Iron Co:Cobalt Ni:Nickel Cu:Copper Zn:Zinc Ga:Gallium Ge:Germanium As:Arsenic Se:Selenium Br:Bromine Kr:Krypton `+
+    `Rb:Rubidium Sr:Strontium Y:Yttrium Zr:Zirconium Nb:Niobium Mo:Molybdenum Tc:Technetium Ru:Ruthenium Rh:Rhodium Pd:Palladium Ag:Silver Cd:Cadmium In:Indium Sn:Tin Sb:Antimony Te:Tellurium I:Iodine Xe:Xenon Cs:Caesium Ba:Barium La:Lanthanum Ce:Cerium Pr:Praseodymium Nd:Neodymium Pm:Promethium Sm:Samarium Eu:Europium Gd:Gadolinium Tb:Terbium Dy:Dysprosium Ho:Holsnium Er:Erbium Tm:Thulium Yb:Ytterbium Lu:Lutetium `+
+    `Hf:Hafnium Ta:Tantalum W:Tungsten Re:Rhenium Os:Osmium Ir:Iridium Pt:Platinum Au:Gold Hg:Mercury Tl:Thallium Pb:Lead Bi:Bismuth Po:Polonium At:Astatine Rn:Radon Fr:Francium Ra:Rarium Ac:Actinium Th:Thorium Pa:Protactinium U:Uranium Np:Neptunium Pu:Plutonium Am:Americium Cm:Curium Bk:Berkelium Cf:Californium Es:Einsteinium Fm:Fermium Md:Mendelevium No:Nobelium Lr:Lawrencium Rf:Rutherfordium Db:Dubnium Sg:Seaborgium Bh:Bohrium Hs:Hassium Mt:Meitnerium Ds:Darmstadtium Rg:Roentgenium Cn:Copernicium Nh:Nihonium Fl:Flerovium Mc:Moscovium Lv:Livermorium Ts:Tennessine Og:Oganesson `+
+    `Nt:Natium Nm:Nimium Kt:Katium Cj:Canium Bc:Borcon Q:Halcyon Qc:Sorium Tk:Tinkaron Tn:Tenaron E:Entron Ny:Nyxogen Fn:Funigen Fd:Fundine Qc:Quietacon Qb:Quibon Lt:Litinium Lb:Liborium G:Hesperus Ml:Malonium Da:Dacydium Bd:Badine Ps:Thionus Ld:Ludrine Lp: Dd:Dandium Du:Dubium Gs:Graverus Gp:Hesphorus Lp:Wellium Bs:Spirine Ae:Asterium Dt:Deductrium St:Steinium Ia:Italium Iv:Anvilium Mu:Miegakurium Rd:Roadium Fx:Frequenium Hn:Hannium Ai:Artium Az:Azimovium Bn:Beneum Wd:Wardium L:Liminum Ju:Jupiterium Ft:Frentrium Z:Zamnium Hv:Helvetium Pc:Princium Uk:Ukranium Mh:Mashpoenium Tq:Tesserxelium Cw:Cellulium Ns:Norsouthium Sp:Sympletium `+
+    `Bo:Bolognium Ot:Ostentatium Pl:Planetium Sa:Saturatium Sk:Seekrium Ht:Hitanium Vj:Dzhanibium Vz:Vezium Cz:Celizium Bb:Banbium Bm:Bemium Fw:Framium Ch:Chyuanium Pq:Pourquoium Mi:Mifanium M:Mimnirchium Xk:Mooshrium Lz:Lizium Le:Leilium Ln:Linium Km:Kilomium Td:Tiodium Qm:Quackium Su:Sinicium Ci:Canadium Ap:Aphirum Ab:Arabium Bj:Britannium Pi:Pailium Pk:Paulium Cp:Couplium Hc:Macelium Hj:Contractium Hz:Hertzium Gz:Gazium Bz:Lanelium `+
+    `Kc:Kercorium Ka:Kariun Kp:Kepium Fp:Ferplorium Mf:Mafabium Dk:Dekronium Zd:Zedianium Tz:Tazirium Hw:Howorium Gt:Getium Gm:Garmium Mx:Maxorium Xd:Xedronium Xc:Xecorium Ji:Jirium Tj:Tajium Js:Javascrium Gu:Gurium Ee:Enetherium Kl:Kelurium Kk:Kankium Gn:Genorium Gj:Gajorium Rj:Rijelium Jt:Jetorium Kb:Kibrium Mk:Mekronium Kd:Kedrium Df:Deforium Sf:Sefronium Fh:Ferhium Sw:Sawolium Wj:Wadgium Vo:Voronoidium Cv:Caverium Vd:Vordium Hd:Hadronium Hr:Harkium Aw:Awelium Jw:Jeworium Jm:Jemium Ri:Rithium Cy:Cyanium An:Antronium Ma:Malium Jh:Jaherium Vh:Vahnium Kh:Khelerium Kj:Kijorium Sq:Sequarium Sz:Sezonium Sv:Sevalium Ty:Teryllium Tu:Turanium Ur:Urthonium Mr:Marionium Mz:Mazorium A:Arconium Ay:Ayerium Tp:Teptronium To:Torlium Tw:Twelvium Pv:Pulvonium Ey:Eryllium Em:Embolium Rm:Remnium Ry:Rylonium Rw:Ruwelium En:Enthium Cq:Caquium Je:Jelurium Ej:Ejarium Jk:Jekyrium Bl:Blasorium Bf:Bufium Bq:Bequarium Rc:Rocorium Rp:Rupenium Py:Pyronium Mm:Memorium Vm:Venomium Ss:Sassorium Sl:Silvarium Sd:Sidronium De:Dellium Dm:Damerium Af:Afirium Ax:Axelium Xm:Xemium Vp:Veporium Vc:Vercorium Vn:Venorium `+
+    `Bg:Bagnium Ih:Ihthonon Rt:Retherium Rs:Rasorium Sy:Seyronium Yz:Yzonium Zt:Zetronium Zb:Zebrium Zk:Zakarium Nk:Nekrium Hb:Herobrium Hx:Hexorium Mj:Majium Mb:Mobrilium Bt:Betronium Tr:Trionium Me:Merillium Mw:Mawelium Rv:Revalium Mp:Maphium Ah:Ahrium Hi:Hilarium Ig:Ignesium Aa:Aarium Ak:Akridium Ad:Adurium Sj:Sajium Mq:Marquium Ze:Zenerium Cg:Cognium It:Itheron Id:Idriteon Ct:Catronium Cb:Cabronium Bu:Burium Uv:Uvelium Vf:Veforium Uf:Ufalium Ut:Uterium Tt:Tetronium Wm:Wemium Wo:Woronium Or:Orrhium Ro:Ronelium Zo:Zoronium Zi:Zithorium My:Myconium El:Elorium Ao:Aoronium So:Sonorium Lh:Laherium Fa:Falorium Fu:Furium J:Juronium Aj:Ajurium Jg:Jargium Tg:Targonium Ql:Quelium By:Byronium Bp:Beponium Pe:Perelium Et:Ethoron Fc:Focarium Rr:Rorium Lc:Lecorium Pf:Perfium Rk:Rankium Lk:Lokorium Jd:Jedrium Dh:Dahnium Eh:Eherium Eg:Egzium Pg:Paragonium Pn:Penrium Ph:Phorium Bw:Bewelium Hm:Hamorium Hu:Huronium Ez:Ezionium Ov:Ovelium Ve:Verenium Do:Doronium Zu:Zutronium Zh:Zherium Zx:Zexionium Ck:Carkorium Gk:Garkorium Kn:Kenerium Nc:Nacrium Sh:Sharium Fs:Fasorium Fb:Fibrilium Aq:Aquilium Mv:Movirium Ls:Losorium`
+).split(" ").map(e => e.split(":")).reduce((a, b) => { a[b[0]] = b[1]; return a; }, {});
+
 let wikidata = `
 氢::氕、氘、氚元素的统称。
-烷::单键饱和碳氢（包含氕、氘、氚）化合物，也可指其它单原子与五个氢原子形成的化合物。
-烜::双键不饱和碳氢（包含氕、氘、氚）化合物。
-烯::三键不饱和碳氢（包含氕、氘、氚）化合物。
-炔::四键不饱和碳氢（包含氕、氘、氚）化合物。
+烷::(Alkane)单键饱和碳氢（包含氕、氘、氚）化合物，也可指其它单原子与五个氢原子形成的化合物。
+烜::(Alkone)双键不饱和碳氢（包含氕、氘、氚）化合物。
+烯::(Alkene)三键不饱和碳氢（包含氕、氘、氚）化合物。
+炔::(Alkyne)四键不饱和碳氢（包含氕、氘、氚）化合物。
 酢::基团-CO2，泎酸酐。结构式：$$X-C(=O)2$$。此外有以下共振式：$$X-C(<<#O)->>O$$、$$X-C(->>O)<<#O$$。
 砏::基团RFnFn。结构式：$$R(<=Fn)(->Fn)$$，默认R为碳：-CFnFn-。
 枌::基团X<=Fn。
@@ -34,8 +44,8 @@ let wikidata = `
 
 韫::基团X<<=Fd。
 羘::基团X->N<-T。
-胂::基团-ED3。
-胺::基团-ND2。
+胂::(Shanine)基团-ED3。
+胺::(Amine)基团-ND2。
 洝::基团=NH2。
 腤::基团<<=ND2。
 滕::基团<=TnD2。
@@ -43,15 +53,15 @@ let wikidata = `
 沮::QcD5一价负离子。
 潘::QD5二价负离子。
 汝::NH5一价负离子。
-氨::ND3，即氮氨，亦可指其它元素的一个原子与三个氢原子形成的化合物。
-氠::ED4，即硝氠，亦可指其它元素的一个原子与四个氢原子形成的化合物。
-水::OD2，即氧水，亦可指其它元素的一个原子与两个氢原子形成的化合物。
+氨::(Ammonia)ND3，即氮氨，亦可指其它元素的一个原子与三个氢原子形成的化合物。
+氠::(Shanum)ED4，即硝氠，亦可指其它元素的一个原子与四个氢原子形成的化合物。
+水::(Water)OD2，即氧水，亦可指其它元素的一个原子与两个氢原子形成的化合物。
 腅::基团-NO2，结构式$$X-N(=O)->>O$$，类似硝基。
 硣酸::基团-EOOOD，硝酸的羟基被烃基替代的产物，结构式$$X-E(=O)(->>O)OD$$，一种一元氘酸。
 酵::基团-EO-，结构式$$R-E(=O)-R$$。
 汌::基团<-OT，类似于醇，但无酸性。
-腈::基团-CND，结构式$$X-C(#N)D$$。
-胴::基团-CN-，结构式$$X-C(#N)X$$。
+腈::(Nitrile)基团-CND，结构式$$X-C(#N)D$$。
+胴::(Ketazene)基团-CN-，结构式$$X-C(#N)X$$。
 醝::基团-CO，结构式$$X-C(<<#O)$$，一般以醝酮$$X<-C(<<#O)->Y$$形式存在，单独易被氧化为酢。
 瑥::基团C<-Fd->C，氧醚的类比。
 琭::基团C<-Ld->C，硫醚的类比。
@@ -78,16 +88,15 @@ let wikidata = `
 栶::基团<=NyD。
 珚::䂩基、栶基连接在同一原子上简称珚。
 胭::Ny2H6，类似于肼。
-㲴::基团-CE，类似于氰。
+㲴::(Centranide)基团-CE，类似于氰。
 硌::基团<-CTn，即磴㲴。
-肿::基团-CE，类似于腈。
-腈::基团-CN-。
-氰::物质CN=CN。
+肿::(Entrile)基团-CE，类似于腈。
+氰::(Cyanide)物质CN=CN。
 泾::基团-H2，其中两个氕原子与另一个原子形成3中心4电子键，弱酸性。
 泾酸::泾基团容易电离出一个氕离子，电离后的负离子称为泾酸根。
 釧::将有机物中氘替换为氚后，将多的电子丢掉形成的阳离子。
-苯::二重芳香烃，平面六边形结构，具有以下共振式：$$C%1#CC#CC#C%1$$、$$C%1=C=C=C=C=C=%1$$、$$C%1C#CC#CC#%1$$。
-萱::单重芳香烃，椅形或船型平胞结构，具有以下共振式：$$C%1=CC=CC=C%1$$、$$C%1C=CC=CC=%1$$。
+苯::(Benzene)二重芳香烃，平面六边形结构，具有以下共振式：$$C%1#CC#CC#C%1$$、$$C%1=C=C=C=C=C=%1$$、$$C%1C#CC#CC#%1$$。
+萱::(Shrinone)单重芳香烃，椅形或船型平胞结构，具有以下共振式：$$C%1=CC=CC=C%1$$、$$C%1C=CC=CC=%1$$。
 䐊::芳环上连三键氮。
 醌::芳环上连双键氧。
 哨::类似吡咯或吡唑的含-NH-的杂环为“吡”，含-ED2-的的杂环为“哨”。
@@ -115,7 +124,7 @@ const atomData = `					@	@																																																					@
 																																																																
 
 
-`.split(/[\t\n%\#\@]/).filter(e => e).map((v, id) => [v.slice(0, -1).replace(/[\u4e00-\uFfa5]/g, ""), v.replace(/[A-z]/g, ""), "原子序数：" + (id + 1) + "，价电子排布：" + electrons[id] + "。"]);
+`.split(/[\t\n%\#\@]/).filter(e => e).map((v, id) => [v.slice(0, -1).replace(/[\u4e00-\uFfa5]/g, ""), v.replace(/[A-z]/g, ""), "("+englishName[v.slice(0, -1).replace(/[\u4e00-\uFfa5]/g, "")]+")原子序数：" + (id + 1) + "，价电子排布：" + electrons[id] + "。"]);
 `H::氢类元素中质量最小的，易失去电子形成阳离子，一般为一价半，非金属性相对较弱。
 D::氢类非金属元素，电离能力弱于氕，一般为一价。
 T::电负性非金属性较高，不易电离形成酸，与卤素接近，但原子半径小，一般为半价。

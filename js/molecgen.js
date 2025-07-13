@@ -1228,13 +1228,13 @@ for (const data of rawdata) {
         if (r === 14) {
             database.unshift([1, genIon(s, "T->[C+]-D", valent, 1), n + "甲钏"]);
             database.unshift([1, genIon(s, "T->[Q+](<-T)2", valent, 1), n + "甲磻钏"]);
-            database.unshift([2, genIon(s, "T->[C+2]<-T", valent, 2), n + "二甲钏"]);
-            database.unshift([3, genIon(s, "T->[C+3](<-T)2", valent, 3), n + "三甲钏"]);
-            database.unshift([2, genIon(s, "T->[C+4](<-T)3", valent, 4), n + "四甲钏"]);
-            database.unshift([3, genIon(s, "T->[C+5](<-T)4", valent, 5), n + "五甲钏"]);
+            database.unshift([2, genIon(s, "T->[C+2]<-T", valent, 2), n + "甲二钏"]);
+            database.unshift([3, genIon(s, "T->[C+3](<-T)2", valent, 3), n + "甲三钏"]);
+            database.unshift([2, genIon(s, "T->[C+4](<-T)3", valent, 4), n + "甲四钏"]);
+            database.unshift([3, genIon(s, "T->[C+5](<-T)4", valent, 5), n + "甲五钏"]);
             database.unshift([1, genIon(s, "[Ny+](<-T)2", valent, 1), n + "羏"]);
             database.unshift([2, genIon(s, "[Ny+2](<-T)2", valent, 2), n + "氕羏"]);
-            database.unshift([3, genIon(s, "[N+3](<-T)3", valent, 3), n + "三氚铵"]);
+            database.unshift([3, genIon(s, "[N+3](<-T)3", valent, 3), n + "氚三铵"]);
             database.unshift([1, genIon(s, "D-[N+2]-D", valent, 2), n + "铵"]);
             database.unshift([2, genIon(s, "H<-[N+]-D", valent, 1), n + "氕铵"]);
             database.unshift([1, genIon(s, "D-[Tk+]-D", valent, 1), n + "𥓬钟"]);
@@ -1266,6 +1266,8 @@ for (const data of rawdata) {
         database.unshift([1, genIon(s, "Tn$>[C-]..[Fe+4](..[C-]<$Tn)6..[C-]<$Tn", valent, 4), "亚铁硌化" + n]);
     }
     if (s.startsWith("C->C") || s.startsWith("CC") || s.startsWith("C=C") || s.startsWith("C#C") || s.match(/^[C=][C=][C=]/)) {
+        if (n.includes("素"))
+            continue;
         const nn = n.match(/^[1-9]/) ? "-" + n : n;
         const ss = s.startsWith("CC(=>") ? "C->" + s.slice(1) : s;
         database.unshift([3, "Ld" + s, "1-㲶" + nn]);

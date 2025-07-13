@@ -63,6 +63,18 @@ table.periodic{
 .electron.small{
     font-size:10px;
 }
+.en-name{
+    text-align: center;
+    font-size:0.7em;
+    width:60px;
+    color: darkblue;
+}
+.en-name.small{
+    font-size:11px;
+}
+.en-name.smaller{
+    font-size:9px;
+}
 sup.modified{
     color:darkblue;
 }
