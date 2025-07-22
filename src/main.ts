@@ -5,8 +5,20 @@ import { ShapeBuilder } from "./shape.js";
 import { wikiData, writeWiki, writeWikiElementsFromAtoms } from "./wiki.js";
 window.name = "Chem4D";
 
+const urlp = new URLSearchParams(window.location.search.slice(1));
+const lang = urlp.get("lang") ?? (navigator.languages.join(",").includes("zh") ? "zh" : "en");
 window.onload = () => {
     document.getElementById("uke").style.display = "none";
+    if (lang === "en") {
+        document.getElementById("random").innerText = "I'm feeling Lucky";
+        document.getElementById("model").innerText = "Open in Tsx";
+        document.getElementById("search").innerText = "Search";
+        document.getElementById("infos").innerText = "Information";
+        document.getElementById("history").innerText = "History";
+        document.getElementById("p-zh").remove();
+    } else {
+        document.getElementById("p-en").remove();
+    }
     const canvas = document.querySelector("canvas") as HTMLCanvasElement;
     let smilesDom = document.getElementById("smiles") as HTMLInputElement;
     let windowTsx = null;
@@ -57,7 +69,7 @@ window.onload = () => {
         smilesDom.value = mdata[id][1] as string;
         const g = new ShapeBuilder(new Parser(smilesDom.value, true).parse()).build();
         engine.drawMolecule(g.atoms, g.bonds);
-        document.querySelector("h2").innerText = mdata[id][2] + " - 相关信息";
+        document.querySelector("h2").innerText = mdata[id][2] + (lang === "en" ? " - Information" : " - 相关信息");
         const name = mdata[id][2] as string;
         wikiPanel.innerHTML = "";
         if (mdata[id][3]) writeWiki(wikiPanel, mdata[id][2] as string, mdata[id][3] as string);
@@ -95,7 +107,9 @@ window.onload = () => {
             const f = e;
             return (f[1].includes(txt) || f[2]?.includes(txt) || f[3]?.includes(txt)) && (e[0] as any) < 10;
         }).sort((a, b) => (a[2].length - b[2].length + ((a[0] as any) - (b[0] as any))));
-        document.querySelector("h2").innerText = res.length ? txt + " - 搜索结果" : "未找到任何关于“" + txt + "”的信息";
+        document.querySelector("h2").innerText = lang === "en" ?
+            res.length ? txt + " - Search result" : "Found nothing about “" + txt + "”." :
+            res.length ? txt + " - 搜索结果" : "未找到任何关于“" + txt + "”的信息";
         wikiPanel.innerHTML = "";
         for (let i = 0; i < 8 && i < res.length; i++) {
             writeWiki(wikiPanel, res[i][2], `$$${res[i][1]}$$`)?.addEventListener('click', function (e) {
